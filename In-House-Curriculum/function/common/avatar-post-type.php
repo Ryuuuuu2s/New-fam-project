@@ -48,6 +48,42 @@ function register_avatar_post_type()
     )
   );
 
+  // タグの編集画面にカスタムフィールドを追加
+  function add_category_slug_field_to_tag_edit($term)
+  {
+    $category_slug = get_term_meta($term->term_id, 'category_slug', true);
+?>
+    <tr class="form-field">
+      <th scope="row" valign="top"><label for="category_slug"><?php _e('Category Slug'); ?></label></th>
+      <td>
+        <input type="text" name="category_slug" id="category_slug" value="<?php echo esc_attr($category_slug) ? esc_attr($category_slug) : ''; ?>">
+        <p class="description"><?php _e('Enter the slug of the category this tag is associated with.'); ?></p>
+      </td>
+    </tr>
+  <?php
+  }
+  add_action('avatar-tag_edit_form_fields', 'add_category_slug_field_to_tag_edit');
+
+  // タグのカスタムフィールドを保存
+  function save_category_slug_field_to_tag($term_id)
+  {
+    if (isset($_POST['category_slug'])) {
+      update_term_meta($term_id, 'category_slug', sanitize_text_field($_POST['category_slug']));
+    }
+  }
+  add_action('edited_avatar-tag', 'save_category_slug_field_to_tag');
+
+
+
+  // タグのカスタムフィールドを保存
+  function save_category_id_field_to_tag($term_id)
+  {
+    if (isset($_POST['category_id'])) {
+      update_term_meta($term_id, 'category_id', sanitize_text_field($_POST['category_id']));
+    }
+  }
+  add_action('edited_avatar-tag', 'save_category_id_field_to_tag');
+
   // カスタムフィールドのメタボックスを追加
   function add_avatar_meta_box()
   {
@@ -66,7 +102,7 @@ function register_avatar_post_type()
   {
     $value_payment = get_post_meta($post->ID, '_avatar_radio_payment', true);
     $value_price = get_post_meta($post->ID, '_avatar_price', true);
-?>
+  ?>
     <label for="avatar_radio_coin">
       <input type="radio" name="avatar_radio_payment" id="avatar_radio_coin" value="coin" <?php checked($value_payment, 'coin'); ?> />
       コイン
