@@ -1,0 +1,35 @@
+@use "../../functions"as *;
+@use "../J_functions"as *;
+
+/* -----------------------
+  my-regular
+----------------------- */
+
+.my-regular {
+
+  .under-TX,
+  .noData {
+    font-size: 16px;
+    color: $subF;
+    letter-spacing: 1.6px;
+  }
+
+  .under-TX {
+    margin-top: 10px;
+  }
+
+  .noData {
+    margin-top: 25px;
+  }
+
+  .subscHistoryBox {
+    margin-top: 25px;
+    border: none;
+
+    .historyDetailCol {
+      @include pc {
+        flex-basis: calc(100% / 3) !important;
+      }
+    }
+  }
+}
