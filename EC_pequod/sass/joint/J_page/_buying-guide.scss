@@ -1,0 +1,218 @@
+@use "../../functions"as *;
+@use "../J_functions"as *;
+
+/* -----------------------
+  buying-guide
+----------------------- */
+
+.buying-guide {
+  color: $mainF;
+
+  &-link {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 0;
+    justify-content: center;
+
+    @include pc {
+      margin: 90px auto 0;
+    }
+
+    @include sp {
+      margin: 60px auto 0;
+      width: 350px;
+    }
+
+    @media screen and (max-width: 460px) {
+      width: 100%;
+    }
+
+
+
+    .link {
+      text-align: center;
+      border-right: 1px solid $header3;
+
+      @include pc {
+        width: 20%;
+      }
+
+      @include sp {
+        width: 50%;
+      }
+
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 16px 0 46px;
+      }
+
+
+      .TX {
+        color: $mainF;
+        font-size: 12px;
+        position: relative;
+        @include wt700;
+
+        &::before {
+          content: "";
+          border-radius: 50%;
+          background: $button;
+          position: absolute;
+          left: 50%;
+          translate: -50% 0;
+          width: 16px;
+          height: 16px;
+          top: 28px;
+        }
+
+        &::after {
+          content: "";
+          border-right: 2px solid $P-white;
+          border-bottom: 2px solid $P-white;
+          border-radius: 1px;
+          position: absolute;
+          width: 6px;
+          height: 7px;
+          top: 31px;
+          left: 50%;
+          translate: -50% 0;
+          rotate: 45deg;
+
+        }
+
+      }
+
+      &:nth-child(5n) {
+        @include pc {
+          border-right: none;
+        }
+      }
+
+      &:nth-child(2n) {
+        @include sp {
+          border-right: none;
+        }
+      }
+    }
+  }
+
+  #howto-order {
+    margin: 100px auto 0;
+
+    @include sp {
+      width: 90%;
+    }
+
+    .howto-order-list {
+      @include pc {
+        margin-top: 73px;
+      }
+
+      @include sp {
+        margin-top: 58px;
+      }
+
+      li {
+        margin-top: 60px;
+
+        display: flex;
+
+        @include sp {
+          flex-direction: column;
+        }
+
+
+        .img {
+          background-color: rgb(203, 199, 199); //仮
+          border-radius: 10px;
+
+          @include pc {
+            width: 49%;
+            aspect-ratio: 5/3;
+            margin-right: 50px;
+          }
+
+          @include sp {
+            width: 100%;
+            margin-top: 25px;
+            aspect-ratio: 5/3;
+            order: 2;
+          }
+        }
+
+        .textbox {
+          font-size: 16px;
+          letter-spacing: 1.6px;
+
+          @include pc {
+            flex: 1;
+          }
+
+          @include sp {
+            display: contents;
+          }
+
+          .label {
+            @include wt700;
+            font-size: 16px;
+            letter-spacing: 1.6px;
+
+            @include pc {
+              top: 0;
+              left: 55%;
+              width: 100%;
+            }
+
+            @include sp {
+              order: 1;
+            }
+
+          }
+
+
+          .TX {
+            margin-top: 20px;
+            line-height: 1.8;
+
+            @include pc {
+              flex: 1;
+              margin-top: 25px;
+            }
+
+            @include sp {
+              order: 3;
+            }
+          }
+
+        }
+
+      }
+
+      &:first-child {
+        margin-top: none;
+      }
+    }
+  }
+
+  #howto-login {
+    margin: 0 auto;
+
+    @include pc {
+      margin-top: 200px;
+    }
+
+    @include sp {
+      margin-top: 130px;
+      width: 90%;
+    }
+
+    .TX {
+      margin-top: 70px;
+      font-size: 16px;
+      letter-spacing: 1.6px;
+      line-height: 1.8;
+    }
+  }
+}

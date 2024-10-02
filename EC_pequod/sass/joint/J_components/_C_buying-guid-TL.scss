@@ -1,0 +1,22 @@
+@use "../../functions"as *;
+@use "../J_functions"as *;
+
+/* -----------------------
+  C_buying-guid-TL
+----------------------- */
+
+.C_buying-guid-TL {
+  position: relative;
+  letter-spacing: 1.5px;
+  font-size: 19px;
+
+  .TL{
+    @include wt700;
+  }
+
+  .C_line {
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+  }
+}
