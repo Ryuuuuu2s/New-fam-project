@@ -57,10 +57,12 @@ Template Path: pages/
           これからの甲子園学院の歩みに、<br class="pc">
           皆様の一層のご支援とご協力をお願い申し上げ、ご挨拶といたします。
         </p>
-        <p class="name">
-          <span class="name-cont">学校法人 甲子園学院<br class="pc">理事長･学院長</span><br>
+        <div class="name-wrap">
+          <p class="name">
+            <span class="name-cont name-cont-1">学校法人 甲子園学院</span><span class="name-cont name-cont-2">理事長･学院長</span>
+          </p>
           <span class="name-txt">久米 知子</span>
-        </p>
+        </div>
       </div>
     </div>
   </section>
