@@ -24,7 +24,7 @@ Template Path: pages/
       <picture>
         <source srcset="<?php echo get_template_directory_uri(); ?>/img/donation/donation_kv-ttl-pc.svg" media="(min-width: 768px)"
           type="image/svg+xml">
-        <img src="<?php echo get_template_directory_uri(); ?>/img/donation/donation_kv-ttl-sp.svg" alt="教育振興基金への寄付のお願い DONATION">
+        <img src="<?php echo get_template_directory_uri(); ?>/img/donation/donation_kv-ttl-sp.svg" alt="教育振興基金のお願い DONATION">
       </picture>
     </div>
   </section>

@@ -97,28 +97,45 @@
 
       .name {
         letter-spacing: 0.2em;
-
+        // text-align: center;
+        
         @include pc {
           font-size: pmin(26);
+          // width: fit-content;
         }
 
         @include sp {
           font-size: s(22);
+          text-align: center;
         }
 
-        span {
+        .name-cont {
           line-height: 1.8;
           display: inline-block;
-
+          text-align: center;
+          
           @include pc {
             font-size: pmin(15);
             margin-bottom: pmin(10);
+            width: fit-content;
+            margin-inline: auto;
           }
 
           @include sp {
             letter-spacing: 0.08em;
             font-size: s(13);
             margin-bottom: s(10);
+          }
+        }
+
+        .name-txt {
+
+          @include pc {
+            padding-left: 3em;
+          }
+
+          @include sp{
+            text-align: center;
           }
         }
       }
