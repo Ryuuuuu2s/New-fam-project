@@ -1,0 +1,57 @@
+@use "../functions" as *;
+
+/* -----------------------
+  privacy
+----------------------- */
+
+.p-privacy {
+  padding: vwPc(178, null, 178) vwPc(30, null, 30) vwPc(114, null, 114);
+  background: linear-gradient(180deg, #dceef8 0%, #ece4f4 100%);
+
+  @include sp {
+    padding: vwSp(107, null, 107) 0 vwSp(46, null, 46);
+  }
+
+  &__inner {
+    max-width: 1220px;
+    margin: 0 auto;
+  }
+
+  &__card {
+    background-color: var(--color-white);
+    border-radius: vwPc(20, null, 20);
+    padding: vwPc(100, null, 100) vwPc(84, null, 84) vwPc(140, null, 140);
+    max-width: 1132px;
+    margin: 0 auto;
+
+    @include sp {
+      border-radius: vwSp(20, null, 20) vwSp(20, null, 20) 0 0;
+      padding: vwSp(54, null, 54) vwSp(40, null, 40) vwSp(52, null, 52);
+    }
+  }
+
+  &__lead {
+    @include fontPc(14, null, 14);
+    @include lineHeight(14, 32);
+    letter-spacing: 0.08em;
+
+    @include sp {
+      @include fontSp(14, null, 14);
+      @include lineHeight(14, 30);
+      letter-spacing: 0.06em;
+    }
+  }
+
+  &-item {
+    &__body {
+      @include fontPc(14, null, 14);
+      @include lineHeight(14, 28);
+      letter-spacing: 0.1em;
+
+      @include sp {
+        @include fontSp(14, null, 14);
+        @include lineHeight(14, 28);
+      }
+    }
+  }
+}

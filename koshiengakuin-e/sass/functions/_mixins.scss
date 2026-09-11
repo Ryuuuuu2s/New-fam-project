@@ -1,0 +1,470 @@
+$pc: 829px; // PC
+$sp: 828px; // スマホ
+@use "sass:meta";
+
+@mixin pc {
+	@media screen and (min-width: ($pc)) {
+		@content;
+	}
+}
+
+@mixin me($max, $min) {
+	@media screen and (max-width: #{$max}px) and (min-width: #{$min}px) {
+		@content;
+	}
+}
+
+@mixin sp {
+	@media screen and (max-width: ($sp)) {
+		@content;
+	}
+}
+
+// どセンター
+@mixin center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+// absoluteどセンター
+@mixin p-center {
+	top: 50%;
+	left: 50%;
+	translate: -50% -50%;
+}
+
+// absolute上下センター
+@mixin p-center-top {
+	top: 50%;
+	translate: 0 -50%;
+}
+
+// absolute左右センター
+@mixin p-center-left {
+	left: 50%;
+	translate: -50% 0;
+}
+
+// 縦並び間空き
+@mixin column($gap) {
+	display: flex;
+	flex-direction: column;
+	gap: $gap;
+}
+
+// ↓CSSでは
+// @include column( p(10) );
+
+// 横並び◯列
+@mixin row($division, $gap) {
+	width: calc((100% / #{$division}) - (#{$gap} * (#{$division} - 1) / #{$division}));
+}
+
+// 3列の間がp(10)の場合
+// @include row(3, p(10));
+// ↓CSSでは
+// width: calc(100% / ◯ - (□ * (◯ - 1) / ◯));
+
+// background-contain
+@mixin imgContain($img) {
+	background-image: url("../img/#{$img}");
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+// ↓CSSでは
+// @include imgContain('example.jpg');
+
+// background-cover
+@mixin imgCover($img) {
+	background-image: url("../img/#{$img}");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+// ↓CSSでは
+// @include imgCover('example.jpg');
+
+// backgroundIcon-contain
+@mixin iconContain($img) {
+	background-image: $img;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+// ↓CSSでは
+// @include iconContain($dot);
+
+// backgroundIcon-cover
+@mixin iconCover($img) {
+	background-image: $img;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+// ↓CSSでは
+// @include iconCover($dot);
+
+$screenSizePC: 1366;
+$screenSizeSP: 414;
+
+// サイズ
+@function p($size, $viewport: $screenSizePC) {
+	$rate: calc(100 / $viewport);
+
+	// guard: if size is not a number or is 0, return 0px
+	@if meta.type-of($size) != "number" or $size == 0 {
+		@return 0px;
+	}
+	@return $rate * $size * 1vw;
+}
+
+// font-size: p(50);
+
+@function pm($size, $maxSize: ($size * 4 / 5), $viewport: $screenSizePC) {
+	$rate: calc(100 / $viewport);
+	$calculatedSize: 0px;
+	// guard: avoid invalid multiplication when $size is not numeric or is 0
+	@if meta.type-of($size) == "number" and $size != 0 {
+		$calculatedSize: $rate * $size * 1vw;
+	}
+	@return max(#{$calculatedSize}, #{$maxSize}px);
+}
+
+// 入力値に*4/5した値とvwの値を比較して大きい方を返す
+// font-size: pm(50,40);
+// or
+// font-size: pm(50);
+
+@function pmin($size, $maxSize: ($size * 4 / 5), $viewport: $screenSizePC) {
+	$rate: calc(100 / $viewport);
+	$calculatedSize: 0px;
+	// guard: avoid invalid multiplication when $size is not numeric or is 0
+	@if meta.type-of($size) == "number" and $size != 0 {
+		$calculatedSize: $rate * $size * 1vw;
+	}
+	@return min(#{$calculatedSize}, #{$maxSize}px);
+}
+
+// 入力値に*4/5した値とvwの値を比較して大きい方を返す
+// font-size: pmin(-50,-40);
+// or
+// font-size: pmin(-50);
+
+@function pcl(
+	$minSize: (
+		$size * 4 / 5,
+	),
+	$size,
+	$maxSize: (
+		$size * 4 / 5,
+	),
+	$viewport: $screenSizePC
+) {
+	$rate: calc(100 / $viewport);
+	$calculatedSize: 0px;
+	// guard: avoid invalid multiplication when $size is not numeric or is 0
+	@if meta.type-of($size) == "number" and $size != 0 {
+		$calculatedSize: $rate * $size * 1vw;
+	}
+	@return clamp(#{$minSize}px, $calculatedSize, #{$maxSize}px);
+}
+
+// 入力値に*4/5した値とvwの値を比較して大きい方を返す
+// font-size: pcl(30,50,40);
+// or
+// font-size: pcl(50);
+
+@function s($size, $viewport: $screenSizeSP) {
+	$rate: calc(100 / $viewport);
+
+	// guard: if size is not a number or is 0, return 0px
+	@if meta.type-of($size) != "number" or $size == 0 {
+		@return 0px;
+	}
+	@return $rate * $size * 1vw;
+}
+
+// font-size: s(50);
+
+@function sm($size, $maxSize: ($size * 4 / 5), $viewport: $screenSizeSP) {
+	$rate: calc(100 / $viewport);
+	$calculatedSize: 0px;
+	// guard: avoid invalid multiplication when $size is not numeric or is 0
+	@if meta.type-of($size) == "number" and $size != 0 {
+		$calculatedSize: $rate * $size * 1vw;
+	}
+	@return min(#{$calculatedSize}, #{$maxSize}px);
+}
+
+// 入力値に*4/5した値とvwの値を比較して大きい方を返す
+// font-size: sm(50,40);
+// or
+// font-size: sm(50);
+
+@function smax($size, $maxSize: ($size * 4 / 5), $viewport: $screenSizeSP) {
+	$rate: calc(100 / $viewport);
+	$calculatedSize: 0px;
+	// guard: avoid invalid multiplication when $size is not numeric or is 0
+	@if meta.type-of($size) == "number" and $size != 0 {
+		$calculatedSize: $rate * $size * 1vw;
+	}
+	@return max(#{$calculatedSize}, #{$maxSize}px);
+}
+
+// 入力値に*4/5した値とvwの値を比較して大きい方を返す
+// font-size: smax(50,40);
+// or
+// font-size: smax(50);
+
+@function scl(
+	$minSize: (
+		$size * 4 / 5,
+	),
+	$size,
+	$maxSize: (
+		$size * 4 / 5,
+	),
+	$viewport: $screenSizeSP
+) {
+	$rate: calc(100 / $viewport);
+	$calculatedSize: 0px;
+	// guard: avoid invalid multiplication when $size is not numeric or is 0
+	@if meta.type-of($size) == "number" and $size != 0 {
+		$calculatedSize: $rate * $size * 1vw;
+	}
+	@return clamp(#{$minSize}px, $calculatedSize, #{$maxSize}px);
+}
+
+// 入力値に*4/5した値とvwの値を比較して大きい方を返す
+// font-size: scl(30,50,40);
+// or
+// font-size: scl(50);
+
+// line-height
+@mixin lineHeight($font-size, $line-height) {
+	line-height: calc(#{$line-height} / #{$font-size});
+}
+
+// ↓CSSでは
+// @include lineHeight(50, 75);
+// これでline-heightが単位なしで計算される
+
+// 関数の使い方
+// @mixin test($sidePadding : calc(( 98 / 1280) * 100vw) , $sidemargin : 0 0 0 auto ){
+//   .test--btn{
+//     padding: calc(( 6 / 1280) * 100vw) $sidePadding calc(( 2 / 1280) * 100vw);
+//     margin: $sidemargin;
+//   }
+// }
+
+// @mixin img($img){
+//   background-image: url('/img/#{$img}');
+//   background-size: contain;
+//   background-position: center;
+//   background-repeat: no-repeat;
+// }
+// ↓CSSでは
+// @include img('example.jpg');
+
+
+
+/*-----------------------
+ * PC用
+ * font-size を自動で計算する
+ * 最小値と最大値を指定する
+/*-----------------------*/
+
+// PC用フォント自動計算 ----------------------------------------------------
+@function fontsizePc($size, $minSize: null, $maxSize: null, $viewport: $screenSizePC) {
+	$rate: calc(100 / $viewport);
+	$calculatedSize: 0px;
+	// guard: avoid invalid multiplication when $size is not numeric or is 0
+	@if meta.type-of($size) == "number" and $size != 0 {
+		$calculatedSize: $rate * $size * 1vw;
+	}
+
+	// 両方未指定 → vw 計算値をそのまま返す
+	@if $minSize == null and $maxSize == null {
+		@return $calculatedSize;
+	}
+
+	// 最小のみ未指定 → 最大と比較して小さい方を返す
+	@if $minSize == null and $maxSize != null {
+		@return min(#{$calculatedSize}, #{$maxSize}px);
+	}
+
+	// 最大のみ未指定 → 最小と比較して大きい方を返す
+	@if $minSize != null and $maxSize == null {
+		@return max(#{$calculatedSize}, #{$minSize}px);
+	}
+
+	// 両方指定 → clamp を使用
+	@return clamp(#{$minSize}px, $calculatedSize, #{$maxSize}px);
+}
+
+// 使い方
+// - fontsizePc($size)
+//   → ビューポートに基づく vw 計算値を返します（最小・最大制約なし）。
+// - fontsizePc($size, $min)
+//   → vw と $min(px) を比較し、どちらか大きい値を返します（最小値を下回らない）。
+// - fontsizePc($size, null, $max)
+//   → vw と $max(px) を比較し、どちらか小さい値を返します（最大値を超えない）。
+// - fontsizePc($size, $min, $max)
+//   → clamp($min px, vw の計算値, $max px) を返します（下限と上限でクリップ）。
+// 例:
+// font-size: fontsizePc(50);             // vw のみ
+// font-size: fontsizePc(50, 30);         // 最小 30px を下回らない
+// font-size: fontsizePc(50, null, 60);   // 最大 60px を超えない
+// font-size: fontsizePc(50, 30, 60);     // 30px <= vw <= 60px
+// ミックスインの使用例:
+// @include fontPc(50, 30, 60);
+
+@mixin fontPc($size, $minSize: null, $maxSize: null, $viewport: $screenSizePC) {
+	font-size: fontsizePc($size, $minSize, $maxSize, $viewport);
+}
+
+/*-----------------------
+ * PC用
+ * vw を自動で計算する
+ * 最小値と最大値を指定する
+/*-----------------------*/
+
+// PC用フォント自動計算 ----------------------------------------------------
+@function vwPc($size, $minSize: null, $maxSize: null, $viewport: $screenSizePC) {
+	$rate: calc(100 / $viewport);
+	$calculatedSize: 0px;
+	// guard: avoid invalid multiplication when $size is not numeric or is 0
+	@if meta.type-of($size) == "number" and $size != 0 {
+		$calculatedSize: $rate * $size * 1vw;
+	}
+
+	// 両方未指定 → vw 計算値をそのまま返す
+	@if $minSize == null and $maxSize == null {
+		@return $calculatedSize;
+	}
+	// 最小のみ未指定 → 最大と比較して小さい方を返す
+	@if $minSize == null and $maxSize != null {
+		@return min(#{$calculatedSize}, #{$maxSize}px);
+	}
+	// 最大のみ未指定 → 最小と比較して大きい方を返す
+	@if $minSize != null and $maxSize == null {
+		@return max(#{$calculatedSize}, #{$minSize}px);
+	}
+
+	// 両方指定 → clamp を使用
+	@return clamp(#{$minSize}px, $calculatedSize, #{$maxSize}px);
+}
+// 使い方
+// - vwPc($size)
+//   → ビューポートに基づく vw 計算値を返します（最小・最大制約なし）。
+// - vwPc($size, $min)
+//   → vw と $min(px) を比較し、どちらか大きい値を返します（最小値を下回らない）。
+// - vwPc($size, null, $max)
+//   → vw と $max(px) を比較し、どちらか小さい値を返します（最大値を超えない）。
+// - vwPc($size, $min, $max)
+//   → clamp($min px, vw の計算値, $max px) を返します（下限と上限でクリップ）。
+// 例:
+// font-size: vwPc(50);             // vw のみ
+// font-size: vwPc(50, 30);         // 最小 30px を下回らない
+// font-size: vwPc(50, null, 60);	 // 最大 60px を超えない
+// font-size: vwPc(50, 30, 60);     // 30px <= vw <= 60px
+// ミックスインの使用例:
+// @include vwPc(50, 30, 60);
+
+
+/*-----------------------
+ * SP用
+ * vw を自動で計算する
+ * 最小値と最大値を指定する
+/*-----------------------*/
+
+// SP用フォント（vw）自動計算 ------------------------------------------------
+@function fontsizeSp($size, $minSize: null, $maxSize: null, $viewport: $screenSizeSP) {
+	$rate: calc(100 / $viewport);
+	$calculatedSize: 0px;
+ 	// guard: avoid invalid multiplication when $size is not numeric or is 0
+ 	@if meta.type-of($size) == "number" and $size != 0 {
+		$calculatedSize: $rate * $size * 1vw;
+	}
+
+	// 両方未指定 → vw 計算値をそのまま返す
+	@if $minSize == null and $maxSize == null {
+		@return $calculatedSize;
+	}
+
+	// 最小のみ未指定 → 最大と比較して小さい方を返す
+	@if $minSize == null and $maxSize != null {
+		@return min(#{$calculatedSize}, #{$maxSize}px);
+	}
+
+	// 最大のみ未指定 → 最小と比較して大きい方を返す
+	@if $minSize != null and $maxSize == null {
+		@return max(#{$calculatedSize}, #{$minSize}px);
+	}
+
+	// 両方指定 → clamp を使用
+	@return clamp(#{$minSize}px, $calculatedSize, #{$maxSize}px);
+}
+
+// 使い方
+// - fontsizeSp($size)
+//   → ビューポートに基づく vw 計算値を返します（最小・最大制約なし）。
+// - fontsizeSp($size, $min)
+//   → vw と $min(px) を比較し、どちらか大きい値を返します（最小値を下回らない）。
+// - fontsizeSp($size, null, $max)
+//   → vw と $max(px) を比較し、どちらか小さい値を返します（最大値を超えない）。
+// - fontsizeSp($size, $min, $max)
+//   → clamp($min px, vw の計算値, $max px) を返します（下限と上限でクリップ）。
+// 例:
+// font-size: fontsizeSp(18);             // vw のみ
+// font-size: fontsizeSp(18, 14);         // 最小 14px を下回らない
+// font-size: fontsizeSp(18, null, 22);   // 最大 22px を超えない
+// font-size: fontsizeSp(18, 14, 22);     // 14px <= vw <= 22px
+// ミックスインの使用例:
+// @include fontSp(18, 14, 22);
+
+@mixin fontSp($size, $minSize: null, $maxSize: null, $viewport: $screenSizeSP) {
+	font-size: fontsizeSp($size, $minSize, $maxSize, $viewport);
+}
+
+// -------------------------------------------------------------------------
+
+/*-----------------------
+ * SP用
+ * font-size を自動で計算する
+ * 最小値と最大値を指定する
+/*-----------------------*/
+
+@function vwSp($size, $minSize: null, $maxSize: null, $viewport: $screenSizeSP) {
+	$rate: calc(100 / $viewport);
+	$calculatedSize: 0px;
+ 	// guard: avoid invalid multiplication when $size is not numeric or is 0
+ 	@if meta.type-of($size) == "number" and $size != 0 {
+		$calculatedSize: $rate * $size * 1vw;
+	}
+
+	// 両方未指定 → vw 計算値をそのまま返す
+	@if $minSize == null and $maxSize == null {
+		@return $calculatedSize;
+	}
+
+	// 最小のみ未指定 → 最大と比較して小さい方を返す
+	@if $minSize == null and $maxSize != null {
+		@return min(#{$calculatedSize}, #{$maxSize}px);
+	}
+
+	// 最大のみ未指定 → 最小と比較して大きい方を返す
+	@if $minSize != null and $maxSize == null {
+		@return max(#{$calculatedSize}, #{$minSize}px);
+	}
+
+	// 両方指定 → clamp を使用
+	@return clamp(#{$minSize}px, $calculatedSize, #{$maxSize}px);
+}
+

@@ -1,0 +1,261 @@
+@use "../functions" as *;
+
+/* -----------------------
+  connected-hearts
+----------------------- */
+
+.p-connected-hearts {
+
+  &-kv {
+    color: var(--color-white);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(-145deg, #4a89c8 0%, #00afc7 36.95%, #4a89c8 67.47%, #8a6cc8 90.64%, #c06cb4 100%);
+
+
+    &__title {
+      @include fontPc(74, null, 74);
+      line-height: 1;
+      letter-spacing: 0.1em;
+
+      @include sp {
+        @include fontSp(57, null, 57);
+        @include lineHeight(57, 94);
+      }
+    }
+
+    &__img {
+      width: 100%;
+      max-width: 242px;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+
+      @include sp {
+        max-width: 257px;
+      }
+    }
+
+    // hide KV image until full page load, then fade in
+    .js-kv-load {
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      pointer-events: none;
+    }
+    .js-kv-load.is-loaded {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+  }
+
+  &-poster {
+    position: relative;
+
+    &__title {
+      color: var(--color-white);
+      text-align: center;
+      @include fontPc(34, null, 34);
+      letter-spacing: 0.05em;
+      position: absolute;
+      top: vwPc(170, null, 170);
+      width: 100%;
+      left:0;
+
+      @include sp {
+        @include fontSp(16, null, 16);
+        top: vwSp(70, null, 70);
+      }
+    }
+
+    &__heading {
+      @include fontPc(80, null, 80);
+      @include lineHeight(36, 50);
+      margin-top: .15em;
+
+      @include sp {
+        @include fontSp(36, null, 36);
+      }
+    }
+  }
+
+
+  &-qa {
+    background-image: url(../img/connected-hearts_qa_bg.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: vwPc(140, null, 140) vwPc(120, null, 120) vwPc(180, null, 180);
+
+    @include sp {
+      padding: vwSp(80, null, 80) vwSp(20, null, 20);
+    }
+
+    &__title {
+      letter-spacing: 0.1em;
+      text-align: center;
+      @include fontPc(20, null, 20);
+
+      @include sp {
+        @include fontSp(16, null, 16);
+      }
+    }
+
+    &__ansewer {
+      text-align: center;
+      letter-spacing: 0.4em;
+      @include fontPc(48, null, 48);
+      @include lineHeight(48, 90);
+      
+      @include sp {
+        letter-spacing: 0.2em;
+        @include fontSp(26, null, 26);
+      }
+
+      img {
+        margin: 0 auto 1em;
+        width: 100%;
+        max-width: 83px;
+        @include sp {
+          max-width: 65px;
+        }
+      }
+
+    }
+
+    &__thumb {
+      
+      img {
+        margin: 0 auto;
+        max-width: 1129px;
+      }
+    }
+
+    &__content {
+      margin: 0 auto;
+      max-width: 828px;
+      @include fontPc(18, null, 18);
+      letter-spacing: 0.14em;
+      @include lineHeight(18, 50);
+
+      @include sp {
+        @include fontSp(14, null, 14);
+        @include lineHeight(14, 32);
+        padding: 00 vwSp(20, null, 20);
+      }
+    }
+  
+  }
+
+  &-comment {
+    background: linear-gradient(-90deg,#4a89c8 0%, #00afc7 36.95%, #4a89c8 67.47%, #8a6cc8 90.64%, #c06cb4 100%);
+    padding: vwPc(68, null, 68) vwPc(75, null, 75) vwPc(97, null, 97);
+
+    @include sp {
+      padding: vwSp(46, null, 46) vwSp(40, null, 40) vwSp(55, null, 55);
+    }
+
+    &__title {
+      text-align: center;
+      color: var(--color-white);
+      @include fontPc(18, null, 18);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+
+      @include sp {
+        @include fontSp(16, null, 16);
+      }
+    }
+
+    &__content {
+      display: flex;
+      gap: vwPc(36, null, 36);
+      max-width: 1220px;
+      margin-inline: auto;
+
+      @include sp {
+        flex-direction: column;
+        gap: vwSp(40, null, 40);
+      }
+    }
+
+    &-item {
+      display: flex;
+      align-items: center;
+      gap: vwPc(30, null, 30);
+      width: 50%;
+
+      @include sp {
+        flex-direction: column-reverse;
+        gap: vwSp(26, null, 26);
+        width: 100%;
+      }
+
+      &__img {
+        width: vwPc(146, null, 146);
+
+        @include sp {
+          width: vwSp(107, null, 107);
+        }
+      }
+
+      &__inner {
+        flex: 1;
+        background: var(--color-white);
+        border-radius: vwPc(10, null, 10);
+        @include fontPc(15, null, 15);
+        letter-spacing: 0.14em;
+        @include lineHeight(15, 30);
+        position: relative;
+        padding: vwPc(27, null, 27) vwPc(45, null, 45) vwPc(20, null, 20);
+
+        @include sp {
+          @include fontSp(14, null, 14);
+          letter-spacing: 0.13em;
+          @include lineHeight(14, 32);
+          width: 100%;
+          padding: vwSp(30, null, 30) vwSp(25, null, 25);
+          border-radius: vwSp(10, null, 10);
+        }
+
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: -8px;
+          width: 20px;
+          height: 20px;
+          background: var(--color-white);
+          transform: translateY(-50%) rotate(45deg);
+
+          @include sp {
+            left: 50%;
+            top: initial;
+            bottom: -8px;
+            transform: translateX(-50%) rotate(45deg);
+          }
+        }
+      }
+
+      &__title {
+        @include fontPc(22, null, 22);
+        letter-spacing: 0.05em;
+        @include lineHeight(22, 33);
+        margin-bottom: vwPc(10, null, 10);
+        
+        @include sp {
+          text-align: center;
+          @include fontSp(18, null, 18);
+          margin-bottom: vwSp(10, null, 10);
+        }
+      }
+
+    }
+
+  }
+
+}

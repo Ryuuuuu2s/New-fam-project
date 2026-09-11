@@ -1,0 +1,286 @@
+@use "../../../functions" as *;
+
+/* -----------------------
+  results
+----------------------- */
+
+.p-results {
+
+  &__inner{
+    background: linear-gradient(209deg, #4A89C8 0.99%, #00AFC7 39.2%, #4A89C8 70.77%, #8A6CC8 94.73%, #C06CB4 104.41%);
+    padding-block: vwPc(53.5, null, 53.5) vwPc(126, null, 126);
+    @include sp {
+      padding-block: vwSp(126, null, 126) vwSp(100 , null, 100);
+    }  
+    
+  }
+  &-mv{
+    overflow: hidden;
+    position: relative;
+    @include sp {
+      display: flex;
+      justify-content: center;
+    }
+
+    &__inner{
+      position: relative;
+      aspect-ratio: 676 / 663;
+      width:  vwPc(676, null, 676);
+      margin: 0 auto;
+      @include imgContain("results-mv.svg");
+      @include sp {
+        width: vwSp(490, null, 490);
+        flex-shrink: 0;
+        margin: 0;
+      }
+    }
+
+    &__textbox{
+      position: absolute;
+      top: 51%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fff;
+      width: 100%;
+    }
+
+
+    &__title{
+      font-size: vwPc(76, null, 76);
+      line-height: 1.44;
+      letter-spacing: vwPc(11.4, null, 11.4);
+      padding-left: .3em;
+
+      @include sp {
+        font-size: vwSp(52, null, 52);
+        line-height: 1.53;
+        letter-spacing: vwSp(7.8, null, 7.8);
+      }
+    }
+
+    &__text{
+      font-size: vwPc(22, null, 22);
+      margin-top: vwPc(32, null, 32);
+      line-height: 1.53;
+      letter-spacing: vwPc(3.08, null, 3.08);
+      padding-left: .5em;
+      @include sp {
+        font-size: vwSp(18, null, 18);
+        margin-top: vwSp(10, null, 10);
+        line-height: 3.33;
+        letter-spacing: vwSp(2.52, null, 2.52);
+        padding-left: .3em;
+      }
+    }
+  }
+
+  &-ranking{
+    margin-top: vwPc(114, null, 114);
+    @include sp {
+      margin-top: vwSp(175, null, 175);
+    }
+    &__inner{
+      width: vwPc(1070, null, 1160);
+      margin: 0 auto;
+      @include sp {
+        width: vwSp(374, null, 374);
+      }
+    }
+
+    &__titlebox{
+      text-align: center;
+      color: #fff;
+    }
+
+    &__title-top{
+      font-size: vwPc(18, null, 18);
+      line-height: 3.22;
+      letter-spacing: vwPc(1.8, null, 1.8);
+      @include sp {
+        font-size: vwSp(15, null, 15);
+        line-height: 2.1;
+        letter-spacing: vwSp(1.1, null, 1.1);
+      }
+    } 
+
+    &__title{
+      font-size: vwPc(36, null, 36);
+      line-height: 1.6;
+      letter-spacing: vwPc(3.6, null, 3.6);
+      @include sp {
+        font-size: vwSp(25, null, 25);
+        line-height: 1.6;
+        letter-spacing: vwSp(3.5, null, 3.5);
+      }
+    }
+
+    &__list{
+      display: flex;
+      justify-content: center;
+      gap: vwPc(50, null, 50);
+      margin-top: vwPc(28, null, 28);
+      @include sp {
+        gap: vwSp(37, null, 37);
+        margin-top: vwSp(29, null, 29);
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    &__item{
+      aspect-ratio: 248 / 254;
+      width: vwPc(248, null, 248);
+      @include sp {
+        width: vwSp(207, null, 207);
+      }
+    }
+
+    &__bottom{
+      display: grid;
+      grid-auto-flow: column;
+      grid-template-rows: repeat(13, auto);
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: vwPc(50, null, 50);
+      margin-top: vwPc(59, null, 59);
+      list-style: none;
+      margin-inline: 0;
+      padding: 0;
+      color: #fff;
+      @include sp {
+        grid-template-rows: repeat(25, auto);
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: vwSp(20, null, 20);
+        margin-top: vwSp(62, null, 62);
+      }
+    }
+
+    &__bottom-item{
+      display: flex;
+      align-items: center;
+      min-width: 0;
+      width: 100%;
+      font-size: vwPc(16, null, 16);
+      line-height: 2.5;
+      letter-spacing: vwPc(0.8, null, 0.8);
+      @include sp {
+        font-size: vwSp(14, null, 14);
+        line-height: calc(32 / 14);
+        letter-spacing: vwSp(0.7, null, 0.7);
+      }
+
+      .name{
+        flex: 0 0 auto;
+        white-space: nowrap;
+        @include sp {
+          font-weight: 500;
+        }
+      }
+
+      .gap{
+        flex: 0 100 vwPc(8.7, null, 8.7);
+        min-width: 0;
+        @include sp {
+          flex-basis: vwSp(11, null, 11);
+        }
+      }
+
+      .line{
+        flex: 1 1 auto;
+        min-width: vwPc(10, null, 10);
+        height: 1px;
+        margin-right: vwPc(9, null, 9);
+        background: rgba(#fff, 0.5);
+        @include sp {
+          min-width: vwSp(10, null, 10);
+          margin-right: vwSp(11, null, 11);
+        }
+      }
+
+      .num{
+        flex-shrink: 0;
+        text-align: right;
+      }
+    }
+  }
+
+  &-alumni{
+    padding-block: vwPc(125, null, 125) vwPc(186, null, 186);
+    @include sp {
+      padding-block: vwSp(93.5, null, 93.5) vwSp(113, null, 113);
+    }
+    &__title{
+      font-size: vwPc(50, null, 50);
+      line-height: 1.7;
+      letter-spacing: vwPc(5, null, 5);
+      text-align: center;
+      @include sp {
+        font-size: vwSp(25, null, 25);
+        line-height: 1.6;
+        letter-spacing: vwSp(3.6, null, 3.6);
+      }
+    }
+    
+    &__slide{
+      margin-top: vwPc(72, null, 72);
+      @include sp {
+        margin-top: vwSp(61, null, 61);
+      }
+    }
+
+    &-auto-slide{
+      overflow: hidden;
+
+      & + & {
+        margin-top: vwPc(64, null, 64);
+        @include sp {
+          margin-top: vwSp(64, null, 64);
+        }
+      }
+
+      &__track{
+        --slide-unit: calc(#{vwPc(1849, null, 1849)} - 1px);
+        display: flex;
+        width: max-content;
+        align-items: center;
+        animation: p-results-alumni-marquee var(--p-results-alumni-duration, 15s) linear infinite;
+        will-change: transform;
+        backface-visibility: hidden;
+        transform: translate3d(0, 0, 0);
+
+        @include sp {
+          --slide-unit: calc(#{vwSp(850, null, 850)} - 1px);
+        }
+      }
+
+      &--reverse .p-results-alumni-auto-slide__track{
+        animation-direction: reverse;
+      }
+
+      &__item{
+        width: vwPc(1849, null, 1849);
+        flex: none;
+        line-height: 0;
+
+        & + & {
+          margin-left: -1px;
+        }
+
+        @include sp {
+          width: vwSp(1576, null, 1576);
+        }
+
+        img{
+          width: 100%;
+          height: auto;
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+@keyframes p-results-alumni-marquee {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(calc(-1 * var(--slide-unit)), 0, 0); }
+}

@@ -1,0 +1,200 @@
+@use "../functions" as *;
+
+/* -----------------------
+  unity
+----------------------- */
+
+// 表示・非表示
+.sp {
+	@include pc {
+		display: none !important;
+	}
+}
+
+.pc {
+	@include sp {
+		display: none !important;
+	}
+}
+
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: 10%;
+}
+
+body {
+	// @include serif;
+	font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+	font-size: pmin(16, 18);
+	@include lineHeight(15, 28);
+
+  @include sp {
+    @include fontSp(15, null, 15);
+  }
+
+  &.is-fixed {
+    // position: fixed;
+    // left: 0;
+    // right: 0;
+    width: 100%;
+    overflow: hidden;
+  }
+}
+
+/* html.is-fixed rules removed — body fixed positioning handles scroll lock */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@include wt400;
+}
+
+.whopper {
+	// overflow: hidden;
+}
+
+
+// font
+.font-avenir {
+	@include avenir;
+}
+.font-avenir-thin {
+	@include avenirThin;
+}
+.font-avenir-demibold {
+	@include avenirDemiBold;
+}
+.font-avenir-bold {
+	@include avenirBold;
+}
+.font-marumin-old {
+	@include marumin-old;
+}
+.font-a-otf-a1-mincho-std-bold {
+	@include a-otf-a1-mincho-std-bold;
+}
+
+.font-jost {
+  font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+// width
+.u-w100 {
+	width: 100%;
+}
+
+// PCとSPで要素の切り替えをするためのクラス
+.pc-none {
+  display: block;
+  @include pc {
+    display: none;
+  }
+}
+.sp-none {
+  display: none;
+  @include pc {
+    display: block;
+  }
+}
+
+
+// animation
+.fade {
+  @include pc {
+    opacity: 1;
+    transition: opacity .3s ease-in-out;
+    &:hover {
+      opacity: .6;
+    }
+  }
+}
+
+// Font Weight
+.fw-n {
+  font-weight: normal;
+}
+.fw-b {
+  font-weight: 600;
+}
+
+
+.u-sp-spacing {
+  @include sp {
+    padding-left: 1em;
+  }
+}
+
+
+.u-ta-center {
+  text-align: center;
+}
+
+
+
+// Margin
+@for $i from 0 through 300 {
+  .sp-mgt-#{$i} { margin-top: vwSp($i, null, $i); }
+}
+@for $i from 0 through 300 {
+  .sp-mgb-#{$i} { margin-bottom: vwSp($i, null, $i); }
+}
+@for $i from 0 through 300 {
+  .sp-mgr-#{$i} { margin-right: vwSp($i, null, $i); }
+}
+@for $i from 0 through 300 {
+  .sp-mgl-#{$i} { margin-left: vwSp($i, null, $i); }
+}
+@include pc {
+  @for $i from 0 through 300 {
+    .pc-mgt-#{$i} { margin-top: vwPc($i, null, $i); }
+  }
+  @for $i from 0 through 300 {
+    .pc-mgb-#{$i} { margin-bottom: vwPc($i, null, $i); }
+  }
+  @for $i from 0 through 300 {
+    .pc-mgr-#{$i} { margin-right: vwPc($i, null, $i); }
+  }
+  @for $i from 0 through 300 {
+    .pc-mgl-#{$i} { margin-left: vwPc($i, null, $i); }
+  }
+}
+
+// Padding
+@include sp {
+  @for $i from 0 through 300 {
+    .sp-pdt-#{$i} { padding-top: vwSp($i, null, $i); }
+  }
+  @for $i from 0 through 300 {
+    .sp-pdb-#{$i} { padding-bottom: vwSp($i, null, $i); }
+  }
+  @for $i from 0 through 300 {
+    .sp-pdr-#{$i} { padding-right: vwSp($i, null, $i); }
+  }
+  @for $i from 0 through 300 {
+    .sp-pdl-#{$i} { padding-left: vwSp($i, null, $i); }
+  }
+}
+
+@include pc {
+  @for $i from 0 through 300 {
+    .pc-pdt-#{$i} { padding-top: vwPc($i, null, $i); }
+  }
+  @for $i from 0 through 300 {
+    .pc-pdb-#{$i} { padding-bottom: vwPc($i, null, $i); }
+  }
+  @for $i from 0 through 300 {
+    .pc-pdr-#{$i} { padding-right: vwPc($i, null, $i); }
+  }
+  @for $i from 0 through 300 {
+    .pc-pdl-#{$i} { padding-left: vwPc($i, null, $i); }
+  }
+}

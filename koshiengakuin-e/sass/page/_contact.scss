@@ -1,0 +1,292 @@
+@use "../functions" as *;
+
+.p-contact {
+  padding: vwPc(148, null, 148) vwPc(170, null, 170) vwPc(63, null, 63);
+  background: linear-gradient(#4a89c8 0%, #00afc7 36.95%, #4a89c8 67.47%, #8a6cc8 93.97%, #c06cb4 100%);
+
+  @include sp {
+    padding: vwSp(88, null, 88) 0 1px;
+    background: linear-gradient(#4a89c8 0%, #00afc7 36.95%, #4a89c8 67.47%, #8a6cc8 90.64%, #c06cb4 100%);
+
+  }
+
+
+  .p-contact-form {
+    background: #fff;
+    border-radius: vwPc(20, null, 20);
+    padding: vwPc(140, null, 140) vwPc(30, null, 30) vwPc(150, null, 150);
+    @include sp {
+      border-radius: 0;
+      padding: vwSp(50, null, 50) vwSp(40, null, 40) vwSp(90, null, 90);
+    }
+
+    .p-contact-form__inner {
+      max-width: 716px;
+      margin-inline: auto;
+    }
+
+    .p-contact-form__lead {
+      @include fontPc(14, null, 14);
+      @include lineHeight(14, 27);
+      letter-spacing: 0.05em;
+      padding: vwPc(28, null, 28) 0;
+      border-bottom: 1px solid #E0E0E0;
+      border-top: 1px solid #E0E0E0;
+
+      @include sp {
+        @include fontSp(14, null, 14);
+        padding: vwSp(25, null, 25) 0;
+      }
+
+
+      a {
+        color: var(--color-base);
+        text-decoration: underline;
+      }
+    }
+
+    .p-contact-form__item {
+      display: flex;
+      @include sp {
+        flex-direction: column;
+        gap: vwSp(5, null, 5);
+      }
+
+      & + .p-contact-form__item {
+        margin-top: vwPc(30, null, 30);
+
+        @include sp {
+          margin-top: vwSp(30, null, 30);
+        }
+        
+      }
+    }
+
+    .p-contact-form__label {
+      color: var(--color-thema-accent);
+      @include fontPc(15, null, 15);
+      @include lineHeight(14, 32);
+      width: vwPc(220, null, 220);
+      margin-top: .6em;
+
+      @include sp {
+        @include fontSp(14, null, 14);
+        width: 100%;
+        margin-top: 0;
+      }
+    }
+
+    .p-contact-form__input {
+      flex: 1;
+      @include fontPc(15, null, 15);
+      @include lineHeight(15, 30);
+ 
+      @include sp {
+        @include fontSp(14, null, 14);
+      }
+
+      textarea {
+        box-sizing: border-box;
+        border: 0;
+        display: block;
+        background: #F7F7F7;
+        width: 100%;
+        padding: vwPc(15, null, 15) vwPc(20, null, 20);
+        border-radius: vwPc(5, null, 5);
+        height: vwPc(267, null, 267);
+        line-height: 1.5;
+        @include sp {
+          padding: vwSp(15, null, 15) vwSp(20, null, 20);
+          height: vwSp(234, null, 234);
+        }
+      }
+      input {
+        &[type="text"],
+        &[type="email"],
+        &[type="tel"] {
+          box-sizing: border-box;
+          border: 0;
+          display: block;
+          background: #F7F7F7;
+          width: 100%;
+          padding: vwPc(15, null, 15) vwPc(20, null, 20);
+          border-radius: vwPc(5, null, 5);
+          @include sp {
+            padding: vwSp(15, null, 15) vwSp(20, null, 20);
+          }
+        }
+      }
+      select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        border: 0;
+        // display: block;
+        background: #F7F7F7;
+        padding: vwPc(15, null, 15) vwPc(40, null, 40) vwPc(15, null, 15) vwPc(20, null, 20);
+        border-radius: vwPc(5, null, 5);
+        position: relative;
+
+        @include sp {
+          padding: vwSp(15, null, 15) vwSp(40, null, 40) vwSp(15, null, 15) vwSp(20, null, 20);
+        }
+      }
+    }
+
+    .select-item {
+      display: inline-block;
+      position: relative;
+
+      &::after {
+        content: "";
+        display: block;
+        aspect-ratio: 1 / 1;
+        height: 5px;
+        width: 5px;
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        border-right: 1px solid var(--color-base);
+        border-bottom: 1px solid var(--color-base);
+        transform: translateY(-50%) rotate(45deg);
+        pointer-events: none;
+      }
+
+    }
+
+    .p-contact-form__privacy {
+      line-height: 1;
+      text-align: center;
+
+      @include sp {
+        text-align: left;
+        @include fontSp(12, null, 12);
+      }
+
+      a {
+        color: var(--color-base);
+        text-decoration: underline;
+      }
+    }
+
+    .p-contact-form__submit {
+      text-align: center;
+
+      .c-btn {
+        text-align: center;
+        width: vwPc(293, null, 293);
+        @include sp {
+          width: vwSp(213, null, 213);
+        }
+        
+        span {
+          width: 100%;
+        }
+      }
+    }
+
+  }
+
+}
+
+#privacy-check label {
+  display: none;
+}
+.privacy-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include sp {
+    justify-content: flex-start;
+  }
+
+  label {
+    display: inline !important;
+  }
+  
+  .mwform-checkbox-field-text {
+    display: none!important;
+  }
+}
+
+/* Remove automatic <br> inserted by MW WP Form */
+.mw_wp_form br,
+.mwform-checkbox-field br,
+.mwform-radio-field br,
+.mwform-checkbox-field-text br {
+  display: none !important;
+  line-height: 0 !important;
+}
+
+.mw_wp_form {
+  &.mw_wp_form_confirm.mw_wp_form_preview {
+    .p-contact-form__label {
+      margin-top: 0;
+    }
+    .p-contact-form__privacy {
+      display: none!important;
+    }
+  }
+}
+
+
+.c-submit {
+  display: inline-block;
+  border: 0;
+  position: relative;
+  cursor: pointer;
+  
+  .c-submit-btn {
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 9999px;
+    padding: vwPc(15, null, 15) vwPc(24, null, 24) vwPc(15, null, 15) vwPc(24, null, 24);
+    background: linear-gradient(-90deg, #4a89c8 0%, #00afc7 36.95%, #4a89c8 67.47%, #8a6cc8 90.64%, #c06cb4 100%);
+    width: vwPc(293, null, 293);
+    outline: none;
+    position: relative;
+    border: 0;
+    transition: all .3s ease;
+    letter-spacing: 0.1em;
+    @include sp {
+      padding: vwSp(15, null, 15) vwSp(24, null, 24) vwSp(15, null, 15) vwSp(24, null, 24);
+      width: vwSp(213, null, 213);
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+  }
+
+  &::after {
+    content: "";
+    border: 1px solid var(--color-white);
+    background-color: var(--_circle-bg-color);
+    border-radius: 50%;
+    display: block;
+    aspect-ratio: 1 / 1;
+    height: vwPc(28, null, 28);
+    background-size: vwPc(10, null, 10) auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5Ljk3OCIgaGVpZ2h0PSI4LjIyOCIgdmlld0JveD0iMCAwIDkuOTc4IDguMjI4Ij4gPGcgaWQ9IuOCsOODq+ODvOODl181ODEyMCIgZGF0YS1uYW1lPSLjgrDjg6vjg7zjg5cgNTgxMjAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03NjkuMjg1IC0xOTI5LjgyOCkiPiA8ZyBpZD0i44Kw44Or44O844OXXzU4MTE5IiBkYXRhLW5hbWU9IuOCsOODq+ODvOODlyA1ODExOSI+IDxwYXRoIGlkPSJsaW5lIiBkPSJNNzg5LjQ0MSwxOTUyLjIxNmgtOS4yMTV2LTFoOS4yMTVaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTAuOTQxIC0xNy43NzQpIiBmaWxsPSIjZmZmIi8+IDxwYXRoIGlkPSJyaWdodEVkZ2UiIGQ9Ik0tMTQuNjcyLTIuMTVsLS42NTUtLjc1NSwzLjg3LTMuMzU5LTMuODctMy4zNTkuNjU1LS43NTUsNC43NDEsNC4xMTRaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg3ODkuMTk1IDE5NDAuMjA2KSIgZmlsbD0iI2ZmZiIvPiA8L2c+IDwvZz48L3N2Zz4=");
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    right: vwPc(20, null, 20);
+    transform: translateY(-50%);
+    z-index: 2;
+    transition: all .3s ease;
+
+    @include sp {
+      height: vwSp(28, null, 28);
+      background-size: vwSp(8, null, 8) auto;
+      right: vwSp(10, null, 10);
+    }
+  }
+
+}

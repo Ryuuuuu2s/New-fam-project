@@ -1,0 +1,120 @@
+@use "../functions" as *;
+
+/* -----------------------
+  access
+----------------------- */
+
+.p-access {
+  padding: vwPc(178, null, 178) vwPc(30, null, 30) vwPc(130, null, 130);
+  background: linear-gradient(180deg, #dceef8 0%, #ece4f4 100%);
+
+  @include sp {
+    padding: vwSp(107, null, 107) 0 0;
+  }
+
+  .p-access__inner {
+    max-width: 1220px;
+    margin: 0 auto;
+  }
+
+  .p-access__card {
+    background-color: var(--color-white);
+    border-radius: vwPc(20, null, 20);
+    padding: vwPc(117, null, 117) vwPc(84, null, 84) vwPc(112, null, 112);
+    max-width: 1132px;
+    margin: 0 auto;
+
+    @include sp {
+      border-radius: vwSp(20, null, 20) vwSp(20, null, 20) 0 0;
+      padding: vwSp(54, null, 54) 0 vwSp(52, null, 52);
+    }
+  }
+
+  .p-access__address {
+    text-align: center;
+    @include fontPc(18, null, 18);
+    letter-spacing: 0.1em;
+    @include lineHeight(18, 30);
+
+    @include sp {
+      @include fontSp(14, null, 14);
+      @include lineHeight(14, 28);
+      text-align: left;
+      padding: 0 vwSp(40, null, 40);
+    }
+  }
+  .p-access-map {
+    width: 100%;
+  
+    @include sp {
+      // border-width: 4px;
+      padding: 0 vwSp(40, null, 40);
+    }
+  
+    iframe {
+      border: 0;
+      display: block;
+      width: 100%;
+      height: vwPc(642, null, 642);
+  
+      @include sp {
+        height: vwSp(222, null, 222);
+      }
+    }
+  }
+
+  .p-access-route {
+
+    &__scroll {
+      display: none;
+
+      @include sp {
+        display: block;
+        text-align: right;
+        padding: 0 vwSp(40, null, 40);
+
+        img {
+          display: inline-block;
+          width: vwSp(61, null, 61);
+        }
+
+      }
+    }
+
+    &__content {
+      background-color: var(--color-thema-light);
+      padding: vwPc(55, null, 55) vwPc(65, null, 65);
+
+      @include sp {
+        padding: vwSp(46, null, 46) 0;
+      }
+    }
+    
+    &__inner {
+      
+      @include sp {
+        padding-bottom: vwSp(20, null, 20);
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+        padding-inline: vwSp(40, null, 40);
+      }
+
+      img {
+        max-width: initial;
+        width: 100%;
+
+        @include sp {
+          display: block;
+          background-color: var(--color-white);
+          padding: vwSp(20, null, 20);
+          width: vwSp(613, null, 613);
+        }
+      }
+
+    }
+
+  }
+}
+
+
+

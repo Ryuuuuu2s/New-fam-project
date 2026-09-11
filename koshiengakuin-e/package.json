@@ -1,0 +1,23 @@
+{
+  "name": "template_wp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass sass:css",
+    "watch": "sass sass:css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.101.0",
+    "chokidar": "^3.5.3"
+  }
+  ,"overrides": {
+    "sass": {
+      "chokidar": "^3.5.3"
+    }
+  }
+}

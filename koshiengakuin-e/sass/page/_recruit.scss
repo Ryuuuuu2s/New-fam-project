@@ -1,0 +1,218 @@
+@use "../functions" as *;
+
+/* -----------------------
+  recruit
+----------------------- */
+
+.p-recruit {
+  color: var(--color-white);
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000 100%);
+    z-index: 1;
+  }
+
+  .p-recruit__inner {
+    position: relative;
+    z-index: 2;
+  }
+
+  .p-recruit__kv {
+    min-height: 500px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    @include fontPc(34, null, 34);
+    @include lineHeight(68, 99);
+
+    @include sp {
+      @include fontSp(21, null, 21);
+      @include lineHeight(40, 71);
+    }
+  }
+
+  .p-recruit__text {
+    text-align: center;
+    letter-spacing: 0.13em;
+    @include fontPc(27, null, 27);
+    @include lineHeight(27, 69);
+
+    @include sp {
+      @include fontSp(18, null, 18);
+      @include lineHeight(16, 40);
+    }
+
+    .p-recruit__text__name {
+      letter-spacing: 0.04em;
+      @include fontPc(24, null, 24);
+      @include lineHeight(20, 20);
+
+      @include sp {
+        @include fontSp(20, null, 20);
+        @include lineHeight(30, 40);
+      }
+    }
+  }
+
+
+  .p-recruit-guideline {
+    border-radius: vwPc(40, null, 40) vwPc(40, null, 40) 0 0;
+    padding: vwPc(57, null, 57) vwPc(20, null, 20) vwPc(30, null, 30);
+    background: linear-gradient(-90deg, #4a89c8 0%, #00afc7 36.95%, #4a89c8 67.47%, #8a6cc8 93.97%, #c06cb4 100%);
+    max-width: 888px;
+    margin-inline: auto;
+
+    @include sp {
+      background: linear-gradient(-135deg,#4a89c8 0%, #00afc7 36.95%, #4a89c8 67.47%, #8a6cc8 93.97%, #c06cb4 100%);
+      border-radius: 0;
+      padding: vwSp(60, null, 60) vwSp(40, null, 40);
+    }
+
+  }
+
+  .p-recruit-guideline__inner {
+    
+  }
+
+  .p-recruit-guideline__text {
+    text-align: center;
+  }
+
+  .p-recruit-guideline__tel {
+    text-align: center;
+
+    &::before {
+      @include sp {
+        content: "TEL.";
+        display: block;
+        @include fontSp(18, null, 18);
+        margin-block-end: vwSp(10, null, 10);
+      }
+    }
+
+    
+  }
+
+  .p-recruit-guideline__tel__inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: vwPc(10, null, 10);
+    @include fontPc(18, null, 18);
+
+    @include sp {
+      gap: vwSp(10, null, 10);
+      @include fontSp(18, null, 18);
+    }
+
+    img {
+      width: vwPc(35, null, 35);
+
+      @include sp {
+        width: vwSp(30, null, 30);
+      }
+    }
+
+    a {
+      display: block;
+      color: var(--color-white);
+      @include fontPc(38, null, 38);
+      @include lineHeight(38, 38);
+
+      @include sp {
+        @include fontSp(34, null, 34);
+        @include lineHeight(28, 28);
+      }
+    }
+  }
+
+}
+
+
+@keyframes recruitSlide {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  6% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  85% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+
+.p-recruit-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(#00194A, 0.2);
+  }
+  .p-recruit-bg__item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: recruitSlide 20s linear infinite;
+    animation-fill-mode: both;
+  
+    &:nth-child(1) {
+      animation-delay: 0s;
+    }
+  
+    &:nth-child(2) {
+      animation-delay: 4s;
+    }
+  
+    &:nth-child(3) {
+      animation-delay: 8s;
+    }
+  
+    &:nth-child(4) {
+      animation-delay: 12s;
+    }
+  
+    &:nth-child(5) {
+      animation-delay: 16s;
+    }
+
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

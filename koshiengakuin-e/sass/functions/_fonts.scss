@@ -1,0 +1,127 @@
+// フォント
+// テーマ内に `font/Avenir Next.ttc` を置いている想定です。
+// ※ファイル名にスペースがある場合はそのままクオートしてください。
+@font-face {
+	font-family: "Avenir Next";
+	src: url("../font/avenir-next-regular.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+
+// Avenir を使うミックスイン（fallback を含む）
+@mixin avenir {
+	font-family: "Avenir Next", "Noto Sans JP", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+}
+
+
+@font-face {
+	font-family: "Avenir Next Thin";
+	src: url("../font/avenir-next-thin.ttf") format("truetype");
+	font-weight: 100;
+	font-style: normal;
+	font-display: swap;
+}
+@mixin avenirThin {
+	font-family: "Avenir Next Thin", "Noto Sans JP", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+}
+
+
+
+@font-face {
+	font-family: "Avenir Next Demi Bold";
+	src: url("../font/avenir-next-demi-bold.ttf") format("truetype");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+// Avenir を使うミックスイン（fallback を含む）
+@mixin avenirDemiBold {
+	font-family: "Avenir Next Demi Bold", "Noto Sans JP", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+}
+
+@font-face {
+	font-family: "Avenir Next Bold";
+	src: url("../font/avenir-next-bold.ttf") format("truetype");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+// Avenir を使うミックスイン（fallback を含む）
+@mixin avenirBold {
+	font-family: "Avenir Next Bold", "Noto Sans JP", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+}
+
+// font/a-otf-a1-mincho-std-bold.otf
+@font-face {
+	font-family: "A-OTF A1 Mincho Std B";
+	src: url("../font/a-otf-a1-mincho-std-bold.otf") format("opentype");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+@mixin a-otf-a1-mincho-std-bold {
+	font-family: "A-OTF A1 Mincho Std B", "Noto Sans JP", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+}
+
+
+// marumin-old
+@font-face {
+	font-family: "Marumin Old";
+	src: url("../font/marumin-old.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@mixin marumin-old {
+	font-family: "Marumin Old", "Noto Sans JP", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+}
+
+
+// font-family: Noto Serif JP;
+// @mixin serif {
+//   font-family: "Noto Serif JP", serif;
+//   font-weight: 400;
+//   font-style: normal;
+//   line-height: normal;
+// }
+
+// // font-family: Noto Sans JP;
+// @mixin sans {
+//   font-family: "Noto Sans JP", sans-serif;
+//   font-weight: 400;
+//   font-style: normal;
+//   line-height: normal;
+// }
+
+// font-weight:;
+@mixin wt100 {
+	font-weight: 100;
+}
+@mixin wt200 {
+	font-weight: 200;
+}
+@mixin wt300 {
+	font-weight: 300;
+}
+@mixin wt400 {
+	font-weight: 400;
+}
+@mixin wt500 {
+	font-weight: 500;
+}
+@mixin wt600 {
+	font-weight: 600;
+}
+@mixin wt700 {
+	font-weight: 700;
+}
+@mixin wt800 {
+	font-weight: 800;
+}
+@mixin wt900 {
+	font-weight: 900;
+}

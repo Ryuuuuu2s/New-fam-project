@@ -1,0 +1,24 @@
+// フォントカラー
+$F-04123e: #04123e;
+$F-ffffff: #ffffff;
+$F-bf0300: #bf0300;
+$F-f2d786: #f2d786;
+$F-f5bb10: #f5bb10;
+
+// 背景カラー
+$B-00113E: #00113e;
+$B-1A1002: #1a1002;
+$B-fefefe: #fefefe;
+
+// パーツカラー
+$P-ff0000: #ff0000;
+
+:root {
+  --color-thema: linear-gradient(#4a89c8 0%, #00afc7 36.95%, #4a89c8 67.47%, #8a6cc8 90.64%, #c06cb4 100%);
+  --color-thema-2: linear-gradient(#ddf5f7 0%, #e2eff8 35.47%, #ece7f7 90.64%, #f3e7f2 100%);
+  --color-thema-sub: #5329A2;
+  --color-thema-accent: #61398E;
+  --color-thema-light: #EEECF8;
+  --color-base: #3A3642;
+  --color-white: #ffffff;
+}

@@ -1,0 +1,177 @@
+@use "../functions" as *;
+
+/* -----------------------
+  title
+----------------------- */
+
+.c-title {
+  display: flex;
+  align-items: center;
+  gap: vwPc(10, null, 10);
+
+  @include sp {
+    flex-direction: column;
+    justify-content: center;
+    gap: vwSp(2, null, 2);
+  }
+
+
+  &::before {
+    content: "";
+    background: url(../img/logo-mark.svg) 0 0 / 100% 100% no-repeat;
+    height: vwPc(28, null, 28);
+    width: vwPc(35, null, 35);
+
+    @include sp {
+      height: vwSp(28, null, 28);
+      width: vwSp(35, null, 35);
+    }
+  }
+
+  &__label {
+    font-weight: 600;
+    @include fontPc(30, null, 30);
+    letter-spacing: 0.08em;
+
+    @include sp {
+      line-height: 1;
+      @include fontSp(30, null, 30);
+    }
+  }
+
+  &__text {
+    @include fontPc(18, null, 18);
+    letter-spacing: 0.14em;
+
+    @include sp {
+      line-height: 1;
+      @include fontSp(13, null, 13);
+    }
+  }
+
+}
+
+.c-title-2 {
+  text-align: center;
+
+  &::before {
+    content: "";
+    background: url(../img/logo-mark.svg) 0 0 / 100% 100% no-repeat;
+    height: vwPc(37, null, 37);
+    width: vwPc(45, null, 45);
+    margin: 0 auto vwPc(19, null, 19);
+    display: block;
+
+    @include sp {
+      height: vwSp(28, null, 28);
+      width: vwSp(35, null, 35);
+      margin: 0 auto vwSp(15, null, 15);
+    }
+  }
+
+  &__label {
+    @include fontPc(53, null, 53);
+    letter-spacing: 0.08em;
+    line-height: 1;
+
+    @include sp {
+      @include fontSp(30, null, 30);
+    }
+  }
+
+  &__text {
+    @include fontPc(14, null, 14);
+    letter-spacing: 0.14em;
+    @include lineHeight(14, 42);
+    font-weight: 700;
+
+    @include sp {
+      @include fontSp(13, null, 13);
+    }
+  }
+
+}
+
+.c-title-3, .c-page-heading {
+  text-align: center;
+
+  .c-title-3__en {
+    @include fontPc(16, null, 16);
+    color: var(--color-thema-accent);
+    letter-spacing: 0.05em;
+    @include lineHeight(16, 21);
+
+    @include sp {
+      @include fontSp(12, null, 12);
+      @include lineHeight(12, 18);
+    }
+  }
+
+  .c-title-3__ja {
+    @include fontPc(32, null, 32);
+    letter-spacing: 0.05em;
+    @include lineHeight(32, 46);
+    // margin-top: vwPc(10, null, 10);
+
+    @include sp {
+      @include fontSp(22, null, 22);
+      @include lineHeight(22, 30);
+      // margin-top: vwSp(8, null, 8);
+    }
+  }
+
+  &.c-title-3--white {
+    .c-title-3__en {
+      color: var(--color-white);
+    }
+    .c-title-3__ja {
+      color: var(--color-white);
+    }
+  }
+
+}
+
+.c-bar-title {
+  color: var(--color-white);
+  @include fontPc(18, null, 18);
+  @include lineHeight(18, 27);
+  letter-spacing: 0.12em;
+  padding: vwPc(10, null, 10) vwPc(22, null, 22);
+  background: linear-gradient(-90deg, #4a89c8 0%, #00afc7 36.95%, #4a89c8 67.47%, #8a6cc8 90.64%, #c06cb4 100%);
+
+
+  @include sp {
+    @include fontSp(14, null, 14);
+    @include lineHeight(14, 21);
+    padding: vwSp(10, null, 10) vwSp(13, null, 13);
+  }
+}
+
+
+.c-title-line {
+  display: flex;
+  align-items: center;
+  gap: .85em;
+  @include fontPc(26, null, 26);
+  letter-spacing: 0.14em;
+  color: #9E82D3;
+  justify-content: center;
+  width: 100%;
+
+  @include sp {
+    @include fontSp(20, null, 20);
+  }
+
+  &::before, &::after {
+    content: "";
+    display: block;
+    flex: 1;
+    height: 1px;
+    background-color: #9E82D3;
+  }
+
+  & > span {
+
+  }
+
+}

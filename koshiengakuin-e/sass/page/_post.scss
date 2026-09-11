@@ -1,0 +1,59 @@
+@use "../functions" as *;
+
+/* -----------------------
+  post
+----------------------- */
+
+.p-post {
+  padding: vwPc(150, null, 150) 0 vwPc(160, null, 160);
+  background: linear-gradient(#ddf5f7 0%, #e2eff8 35.47%, #ece7f7 90.64%, #f3e7f2 100%);
+
+  @include sp {
+    background: linear-gradient(#ddf5f7 0%, #e2eff8 35.47%, #ece7f7 90.64%, #f3e7f2 100%);
+    padding: vwSp(150, null, 150) 0 vwSp(92, null, 92);
+  }
+
+
+  &__title {
+    margin-bottom: vwPc(38, null, 38);
+
+    @include sp {
+      margin-bottom: vwSp(40, null, 40);
+    }
+  }
+
+  &__category {
+    display: flex;
+    flex-wrap: wrap;
+    gap: vwPc(5, 5, 5);
+    justify-content: center;
+    margin-bottom: vwPc(70, null, 70);
+
+    @include sp {
+      gap: vwSp(5, 5, 5);
+      margin-bottom: vwSp(40, null, 40);
+      padding-inline: vwSp(24, null, 24);
+    }
+  }
+
+  &__content {
+    margin: 0 auto;
+    max-width: 1166px;
+    padding: 0 vwPc(20, null, 20);
+
+    @include sp {
+      padding: 0 vwSp(40, null, 40);
+    }
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: center;
+    margin-top: vwPc(90, null, 90);
+
+    @include sp {
+      margin-top: vwSp(75, null, 75);
+    }
+  }
+
+}

@@ -1,0 +1,112 @@
+{
+    "key": "group_6a82a024e115b",
+    "title": "入学試験・募集要項：その他",
+    "fields": [
+        {
+            "key": "field_6a82a025d4df1",
+            "label": "当日携帯品",
+            "name": "当日携帯品",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "・親子面接日時は、Web出願時に上記期間内でWeb上にてご選択ください\r\n・親子面接、入学選考当日は、定刻10分前までに来校してください（遅刻者の受験は認めません）\r\n・携帯品 ＝ 受験票（Web上で印刷）、上履き（親子とも）\r\n・自家用車でのご来校はご遠慮ください",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": "",
+            "placeholder": "",
+            "new_lines": "br"
+        },
+        {
+            "key": "field_6a82a06bd4df2",
+            "label": "ファミリー奨学金制度（専願者）",
+            "name": "ファミリー奨学金制度（専願者）",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "下記に該当する場合は、「ファミリー奨学金」として入学後10万円を支給します\r\n・父母兄弟姉妹が、学院幼稚園～大学までのいずれかを卒業(園)、または在籍の場合\r\n・父母兄弟姉妹が、学院幼稚園～大学に同時入学(園)の場合\r\n・本人が、学院幼稚園を卒園の場合",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": "",
+            "placeholder": "",
+            "new_lines": "br"
+        },
+        {
+            "key": "field_6a82a09dd4df3",
+            "label": "その他",
+            "name": "その他",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "・一旦納入された入学金などは、理由のいかんにかかわらず返還いたしません\r\n・女子で、学院中学校への進学を希望するものは中学校入学金免除等の優遇制度があります（ただし、専願に限る）\r\n・選考内容、結果についてのお問い合わせには応じられません\r\n・１次受験者は、２次の受験はできません\r\n・スクールバスを利用できます（阪神甲子園方面・阪急西宮北口方面）",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": "",
+            "placeholder": "",
+            "new_lines": "br"
+        },
+        {
+            "key": "field_6a82a0c8d4df4",
+            "label": "募集要項（PDF）",
+            "name": "募集要項（pdf）",
+            "aria-label": "",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_template",
+                "operator": "==",
+                "value": "pages\/page-admission-guide.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1787101457
+}

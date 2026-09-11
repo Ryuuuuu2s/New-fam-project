@@ -1,0 +1,90 @@
+{
+    "key": "group_results_ranking",
+    "title": "卒業生・進学実績：合格者数",
+    "fields": [
+        {
+            "aria-label": "",
+            "instructions": "学校名と合格者数を入力します。",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "key": "field_results_ranking_schools",
+            "label": "合格者数一覧",
+            "name": "results_ranking_schools",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "学校を追加",
+            "collapsed": "field_results_ranking_school_name",
+            "sub_fields": [
+                {
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "aria-label": "",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "70"
+                    },
+                    "parent_repeater": "field_results_ranking_schools",
+                    "key": "field_results_ranking_school_name",
+                    "label": "学校名",
+                    "name": "name",
+                    "type": "text"
+                },
+                {
+                    "min": 0,
+                    "max": "",
+                    "step": 1,
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "aria-label": "",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30"
+                    },
+                    "parent_repeater": "field_results_ranking_schools",
+                    "key": "field_results_ranking_school_num",
+                    "label": "合格者数",
+                    "name": "num",
+                    "type": "number"
+                }
+            ],
+            "min": "",
+            "max": "",
+            "rows_per_page": 20,
+            "pagination": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "pages\/page-results.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1783063028
+}

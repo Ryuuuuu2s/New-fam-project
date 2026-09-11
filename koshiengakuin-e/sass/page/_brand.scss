@@ -1,0 +1,443 @@
+@use "../functions" as *;
+
+/* -----------------------
+  brand
+----------------------- */
+
+.p-brand {
+  
+  &__intro {
+    background-image: url(../img/brand_bg_2.jpg);
+    background-size: 100% 100%;
+    background-repeat: repeat;
+    background-position: bottom center;
+  
+    @include sp {
+      background-image: url(../img/brand_bg_2_sp.jpg);
+      background-size: 100% 100%;
+      background-repeat: repeat;
+      background-position: bottom center;
+    }
+  }
+
+
+  &-kv {
+    background-image: url(../img/brand_bg.jpg);
+    background-size: vwPc(1366) auto;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    padding: vwPc(240, null, 240) 0 vwPc(920);
+    @include sp {
+      padding: 0 0 vwSp(520);
+      background-image: url(../img/brand_bg_sp.jpg);
+    }
+
+    &__title {
+      position: relative;
+      margin-bottom: vwPc(290, null, 290);
+
+      @include sp {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      &__catch {
+        margin: 0 auto;
+        max-width: vwPc(683, null, 683);
+
+        @include sp {
+          max-width: vwSp(280, null, 280);
+        }
+
+      }
+
+      &__scroll {
+        display: none;
+        @include sp {
+          display: block;
+          position: absolute;
+          left: 50%;
+          translate: -50% 0;
+          bottom: vwSp(60, null, 60);
+          width: vwSp(100, null, 100);
+        }
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    &__desc {
+      @include fontPc(28, null, 28);
+      text-align: center;
+      @include lineHeight(28, 90);
+      letter-spacing: 0.14em;
+
+      @include sp {
+        @include fontSp(18, null, 18);
+        @include lineHeight(18, 49);
+      }
+    }
+
+    &__img {
+      margin: vwPc(120, null, 120) auto 0;
+      width: vwPc(570, null, 570);
+
+      @include sp {
+        margin: vwSp(86, null, 86) auto 0;
+        width: vwSp(310, null, 310);
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+  }
+
+
+  &-founding {
+    position: relative;
+    color: #3A3642;
+    text-align: center;
+
+    &__inner {
+      position: relative;
+      display: flex;
+      z-index: 1;
+    }
+
+    &__bg {
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 100vh;
+      z-index: 0;
+
+      picture {
+        display: block;
+      }
+
+      img {
+        display: block;
+        min-width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+      }
+    }
+
+    &__content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      width: calc(100% - 1px);
+      margin-left: auto;
+      padding: 12vh vwPc(32, null, 32) 12vh;
+
+      @include sp {
+        width: 100%;
+        padding: vwSp(109, null, 109) 0 vwSp(200, null, 200);
+      }
+
+      &__inner {
+        width: 100%;
+        max-width: vwPc(1140, null, 1140);
+
+        @include sp {
+          max-width: 100%;
+        }
+      }
+    }
+
+    &__intro {
+      margin-bottom: vwPc(190, null, 190);
+
+      @include sp {
+        margin-bottom: vwSp(82, null, 82);
+      }
+
+      p {
+        @include fontPc(28, null, 28);
+        @include lineHeight(24, 76);
+        letter-spacing: 0.16em;
+
+        @include sp {
+          @include fontSp(18, null, 18);
+          @include lineHeight(18, 52);
+          letter-spacing: 0.1em;
+        }
+      }
+    }
+
+    &__heading {
+      margin-bottom: vwPc(77, null, 77);
+
+      @include sp {
+        margin-bottom: vwSp(80, null, 80);
+      }
+    }
+
+    &__item {
+
+      &+& {
+        margin-top: vwPc(120, null, 120);
+
+        @include sp {
+          margin-top: vwSp(56, null, 56);
+        }
+      }
+    }
+
+    &__mark {
+      display: block;
+      width: vwPc(60, null, 60);
+      aspect-ratio: 35.014 / 28.421;
+      margin: 0 auto vwPc(18, null, 18);
+      background: url(../img/logo-mark.svg) center / 100% 100% no-repeat;
+
+      @include sp {
+        width: vwSp(58, null, 58);
+        margin-bottom: vwSp(18, null, 18);
+      }
+    }
+
+    &__label {
+      @include fontPc(20, null, 20);
+      @include lineHeight(20, 24);
+      letter-spacing: 0.16em;
+
+      @include sp {
+        @include fontSp(20, null, 20);
+        @include lineHeight(20, 24);
+      }
+    }
+
+    &__kana {
+      @include fontPc(15, null, 15);
+      @include lineHeight(15, 20);
+      letter-spacing: 0.18em;
+
+      @include sp {
+        @include fontSp(15, null, 15);
+        @include lineHeight(14, 20);
+      }
+    }
+
+    &__title {
+      @include fontPc(45, null, 45);
+      line-height: 1.2;
+      font-weight: 500;
+      margin-bottom: vwPc(27, null, 27);
+      letter-spacing: 0.2em;
+
+      @include sp {
+        @include fontSp(45, null, 45);
+        margin-bottom: vwSp(26, null, 26);
+        letter-spacing: 0.2em;
+        line-height: 1.3;
+      }
+    }
+
+    &__lead {
+      @include fontPc(28, null, 28);
+      @include lineHeight(24, 42);
+      margin-bottom: vwPc(39, null, 39);
+      letter-spacing: 0.18em;
+      font-weight: 500;
+
+      @include sp {
+        @include fontSp(20, null, 20);
+        @include lineHeight(20, 34);
+        margin-bottom: vwSp(28, null, 28);
+        letter-spacing: 0.13em;
+      }
+    }
+
+    &__lead-sp {
+      @include sp {
+        display: grid !important;
+        grid-template-columns: auto minmax(0, max-content) auto;
+        align-items: center;
+        justify-content: center;
+        column-gap: vwSp(5, null, 5);
+
+        &::before,
+        &::after {
+          content: "〜";
+        }
+      }
+    }
+
+    &__text {
+      @include fontPc(18, null, 18);
+      @include lineHeight(18, 42);
+      letter-spacing: 0.14em;
+
+      @include sp {
+        @include fontSp(16, null, 16);
+        @include lineHeight(15, 32);
+        padding-inline: vwSp(40, null, 40);
+        text-align: justify;
+        letter-spacing: 0.075em;
+      }
+
+      // &--wide-sp {
+      //   @include sp {
+      //     padding-inline: vwSp(17, null, 17);
+      //     letter-spacing: 0.078em;
+      //   }
+      // }
+    }
+  }
+
+
+  &-voice {
+    color: var(--color-white);
+    
+    &__inner {
+      position: relative;
+      display: flex;
+      z-index: 1;
+
+      @include sp {
+        // padding-top: 100vh;
+      }
+    }
+
+    &__bg {
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 100vh;
+      z-index: 0;
+
+      @include sp {
+      }
+
+      img {
+        min-width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+      }
+    }
+
+    &__content {
+      // position: sticky;
+      // top: 0;
+      // left: 0;
+      width: vwPc(660, null, 660);
+      padding: vwPc(240, 240, 240) vwPc(80, null, 80) vwPc(240, null, 240) 0;
+      margin-left: auto;
+      z-index: 1;
+
+      @include sp {
+        width: 100%;
+        margin-top: 80vh;
+        padding: vwSp(60, null, 60) vwSp(30, null, 30) vwSp(240, null, 240);
+      }
+
+      &__mask {
+        display: none;
+        @include sp {
+          position: absolute;
+          display: block;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5);
+          opacity: 0;
+          z-index: 0;
+          transition: opacity 0.3s ease-in-out;
+        }
+      }
+
+      &.is-show {
+
+        &+.p-brand-voice__content__mask {
+          opacity: 1;
+        }
+      }
+
+    }
+
+    &__title {
+      letter-spacing: 0.14em;
+      line-height: 2;
+      @include fontPc(36, null, 36);
+      margin-bottom: vwPc(40, null, 40);
+      position: relative;
+      z-index: 1;
+      
+      @include sp {
+        letter-spacing: 0.1em;
+        @include fontSp(26, null, 26);
+        margin-bottom: vwSp(35, null, 35);
+      }
+    }
+
+    &__profile {
+      margin-top: min(4.0995607613vw, 56px);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end; 
+      padding-left: min(23.4260vw, 320px);
+      align-items: flex-start; 
+
+      @include sp {
+      margin-top: vwSp(51, null, 51);
+      width: fit-content;
+      margin-left: auto; 
+      }
+
+      &__position {
+        @include lineHeight(13, 24);
+        @include fontPc(13, null, 13);
+        letter-spacing: 0.13em;
+        position: relative;
+        z-index: 1;
+
+        @include sp {
+          @include fontSp(13, null, 13);
+        }
+      }
+
+      &__name {
+        @include lineHeight(24, 46);
+        @include fontPc(24, null, 24);
+        letter-spacing: 0.08em;
+        position: relative;
+        z-index: 1;
+
+        @include sp {
+          @include fontSp(20, null, 20);
+        }
+      }
+
+    }
+
+    &__desc {
+      @include fontPc(18, null, 18);
+      @include lineHeight(18, 49);
+      letter-spacing: 0.13em;
+      position: relative;
+      z-index: 1;
+      
+      @include sp {
+        letter-spacing: 0.15em;
+        @include fontSp(15, null, 15);
+        @include lineHeight(15, 32);
+      }
+    }
+
+  }
+}

@@ -1,0 +1,521 @@
+@use "../../../functions" as *;
+
+/* -----------------------
+  schedule
+----------------------- */
+
+.p-schedule{
+  position: relative;
+  isolation: isolate;
+  padding: vwPc(178, null, 178) vwPc(116, null, 116) vwPc(252, null, 252);
+
+  @include sp {
+    padding: vwSp(152, null, 152) vwSp(20, null, 20) vwSp(123, null, 123);
+  }
+  &__bg{
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(180deg, #DDF5F7 -3.56%, #E2EFF8 33.16%, #ECE7F7 90.28%, #F3E7F2 99.97%);
+    background-attachment: fixed;
+  }
+
+  &__title{
+    font-size: vwPc(46, null, 46);
+    letter-spacing: vwPc(4.6, null, 4.6);
+    text-align: center;
+    @include sp {
+      font-size: vwSp(48, null, 48);
+    }
+  }
+
+  &__content{
+    margin-top: vwPc(73, null, 73);
+    @include sp {
+      margin: vwSp(72, null, 72) auto 0;
+      // width: vwSp(334, null, 334);
+    }
+  }
+  &__list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: vwPc(34, null, 34);
+    justify-content: center;
+    @include sp {
+      // flex-direction: column;
+      gap: vwSp(28, null, 28);
+    }
+  }
+  &__item{
+    width: vwPc(550, null, 550);
+    // height: vwPc(433, null, 433);
+    background-color: #fff;
+    border-radius: vwPc(10, null, 10);
+    overflow: hidden;
+    @include sp {
+      width: 100%;
+      // width: vwSp(334, null, 334);
+      // height: vwSp(260, null, 260);
+      border-radius: vwSp(10, null, 10);
+    }
+
+    &-img{
+      aspect-ratio: 1100 / 622;
+      width: 100%;
+      // height: vwPc(311, null, 311);
+      @include sp {
+        // height: vwSp(188, null, 188);
+      }
+
+      img{
+        width:100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+      }
+    }
+
+    &-textbox{
+      padding: vwPc(15, null, 15) vwPc(17, null, 17) vwPc(19, null, 19);
+      display: flex;
+      align-items: center;
+      gap: vwPc(27, null, 27);
+
+      @include sp {
+        padding: vwSp(5.8, null, 5.8) vwSp(10, null, 10) vwSp(7, null, 7);
+        gap: vwSp(0, null, 0);
+        white-space: nowrap;
+      }
+
+      &-icon{
+        position: relative;
+        aspect-ratio: 1 / 1;
+        width: vwPc(88, null, 88);
+        min-width: vwPc(88, null, 88);
+        background: linear-gradient(225deg, #4A89C8 -16.48%, #00AFC7 25.25%, #4A89C8 59.73%, #8A6CC8 85.89%, #C06CB4 96.46%);;
+        border-radius: 50%;
+
+        @include sp {
+          width: vwSp(60, null, 60);
+          min-width: vwSp(60, null, 60);
+        }
+
+        .num{
+          position: absolute;
+          text-align: center;
+          width: 100%;
+          top: 47%;
+          left: 54%;
+          transform: translate(-50%, -50%);
+          font-size: vwPc(48, null, 48);
+          letter-spacing: vwPc(2.4, null, 2.4);
+          color: #fff;
+          @include sp {
+            font-size: vwSp(28, null, 28);
+            letter-spacing: vwSp(1.6, null, 1.6);
+          }
+        }
+
+        span{
+          font-size: vwPc(15, null, 15);
+          letter-spacing: vwPc(0.75, null, 0.75);
+          @include sp {
+            font-size: vwSp(12, null, 12);
+            letter-spacing: vwSp(0.6, null, 0.6);
+          }
+        }
+      }
+      &-event{
+        font-size: vwPc(20, null, 20);
+        letter-spacing: vwPc(2, null, 2);
+        line-height: 1.8;
+        color: #000;
+        @include sp {
+          font-size: vwSp(15, null, 15);
+          letter-spacing: vwSp(1.35, null, 1.35);
+          width: fit-content;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+
+
+  &_music{
+    margin-top: vwPc(144, null, 144);
+    max-width: vwPc(1134, null, 1134);
+    margin-inline: auto;
+  
+    @include sp {
+      margin-top: vwSp(146, null, 146);
+      // max-width: vwSp(374, null, 374);
+    }
+
+    &__title{
+      text-align: center;
+
+      &-text{
+        color: var(--color-thema-sub);
+        font-weight: 600;
+        line-height: normal;
+        font-size: vwPc(16, null, 16);
+        letter-spacing: vwPc(0.8, null, 0.8);
+        @include sp {
+          font-size: vwSp(14, null, 14);
+          letter-spacing: vwSp(0.7, null, 0.7);
+        }
+      }
+
+      &-main{
+        font-size: vwPc(32, null, 32);
+        letter-spacing: vwPc(1.6, null, 1.6);
+        line-height: normal;
+        @include sp {
+          font-size: vwSp(24, null, 24);
+          letter-spacing: vwSp(1.2, null, 1.2);
+        }
+      }
+    }
+
+    &__text{
+      text-align: center;
+      font-size: vwPc(15, null, 15);
+      line-height: 2.26;
+      letter-spacing: vwPc(2.1, null, 2.1);
+      margin-top: vwPc(23, null, 23);
+      @include sp {
+        width: calc(326 /374 * 100%);
+        margin: vwSp(24, null, 24) auto 0;
+        font-size: vwSp(15, null, 15);
+        line-height: 2.13;
+        letter-spacing: vwSp(1.12, null, 1.12);
+        text-align: left;
+
+      }
+    }
+    
+  
+    &__content{
+      margin-top: vwPc(82, null, 82);
+  
+      @include sp {
+        margin-top: vwSp(28, null, 28);
+      }
+    }
+  
+    &__switcher{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: vwPc(6, null, 6);
+      row-gap: 0;
+      @include sp {
+        display: block;
+      }
+    }
+  
+    &__item{
+      display: contents;
+
+      @include sp {
+        display: block;
+  
+        & + & {
+          margin-top: vwSp(13, null, 13);
+        }
+      }
+
+  
+      &.is-active {
+        .p-schedule_music__trigger {
+          @include pc {
+            background: #fff;
+            color: #4A89C8;
+            position: relative;
+            z-index: 1;
+          }
+        }
+      }
+    }
+  
+    &__trigger{
+      position: relative;
+      grid-row: 1;
+      width: 100%;
+      border: 0;
+      background: linear-gradient(268deg, #4A89C8 -1%, #00AFC7 39.27%, #4A89C8 72.54%, #8A6CC8 97.79%, #C06CB4 107.99%);  
+      cursor: pointer;
+      text-align: center;
+      font: inherit;
+      color: #fff;
+      padding: vwPc(16, null, 16) vwPc(12, null, 12);
+      border-radius: vwPc(20, null, 20) vwPc(20, null, 20) 0 0;
+      letter-spacing: vwPc(2.4, null, 2.4);
+
+      @include sp {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: vwSp(12, null, 12);
+        width: 100%;
+        padding: vwSp(15, null, 15) 0;
+        border-radius: vwSp(10, null, 10);
+        background: #FFF;
+        color: var(--color-base);
+        font-size: vwSp(16, null, 16);
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          right: vwSp(20, null, 20);
+          transform: translateY(-50%);
+          width: vwSp(11, null, 11);
+          height: vwSp(11, null, 11);
+          background: url("data:image/svg+xml,%3Csvg width='11' height='11' viewBox='0 0 11 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.856 10.6082H4.752V5.85619H1.78814e-06V4.76819L4.768 4.75219V0.00018692H5.856V4.73619L10.608 4.75219V5.84019L5.856 5.85619V10.6082Z' fill='%233A3642'/%3E%3C/svg%3E") center / contain no-repeat;
+        }
+      }
+    }
+  
+
+    // スマホのアコーディオン
+    &__item.is-active &__trigger {
+      @include sp {
+        border-radius: vwSp(10, null, 10) vwSp(10, null, 10) 0 0;
+
+        &::after {
+          background-image: url("data:image/svg+xml,%3Csvg width='11' height='11' viewBox='0 0 11 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 4.76819H10.608V5.85619H0V4.76819Z' fill='%233A3642'/%3E%3C/svg%3E");
+        }
+      }
+    }
+  
+    &__panel{
+      grid-row: 2;
+      grid-column: 1 / -1;
+      background-color: #fff;
+      border-radius: 0 0 vwPc(20, null, 20) vwPc(20, null, 20);
+      padding: vwPc(66, null, 66) vwPc(54, null, 54);
+
+      @include pc {
+        margin-top: -1px;
+      }
+      @include sp {
+        padding: vwSp(30, null, 30) vwSp(20, null, 20) vwSp(70, null, 70);
+        border-radius: vwSp(10, null, 10);
+
+      }
+  
+      &[hidden] {
+        display: none;
+      }
+  
+      @include sp {
+        grid-row: auto;
+        grid-column: auto;
+      }
+    }
+
+    &__panel-inner{
+
+      & + & {
+        margin-top: vwPc(42, null, 42);
+      }
+
+      @include sp {
+
+        & + & {
+          margin-top: vwSp(42, null, 42);
+        }
+      }
+    }
+
+    &__panel-title {
+      display: flex;
+      justify-content: center;
+      margin-bottom: vwPc(50, null, 50);
+      @include sp {
+        margin: 0 auto vwSp(25, null, 25);
+        width: vwSp(270, null, 270);
+      }
+    }
+
+    &__item-content{
+      &-title{
+        width: 100%;
+        text-align: center;
+        border-radius: vwPc(10, null, 10);
+        background: linear-gradient(270deg, #4A89C8 9.19%, #00AFC7 43.2%, #4A89C8 71.3%, #8A6CC8 92.63%, #C06CB4 101.25%);
+        padding-block: vwPc(14, null, 14) vwPc(16, null, 16);
+        
+        @include sp {
+          border-radius: vwSp(10, null, 10);
+          padding-block: vwSp(14, null, 14);
+        }
+        &-text{
+          color: #fff;
+          font-size: vwPc(22, null, 22);
+          letter-spacing: vwPc(2.2, null, 2.2);
+          line-height: 2;
+
+          @include sp {
+            font-size: vwSp(15, null, 15);
+            letter-spacing: vwSp(1.3, null, 1.3);
+            line-height: 1.4;
+          }
+        }
+      }
+
+      &-list{
+        margin-top: vwPc(16, null, 16);
+        display: flex;
+        flex-direction: column;
+        gap: vwPc(16, null, 16);
+
+        @include pc {
+          .p-schedule_music__item-content-item:not(:has(.p-schedule_music__item-content-item-img)) + .p-schedule_music__item-content-item:not(:has(.p-schedule_music__item-content-item-img)) {
+            margin-top: vwPc(74, null, 74);
+          }
+        }
+
+        @include sp {
+          gap: vwSp(23, null, 23);
+        }
+      }
+
+      &-item{
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+
+        @include sp {
+          flex-wrap: wrap;
+          margin-top: vwSp(19, null, 19);
+        }
+
+        &-year{
+          text-align: center;
+          font-size: vwPc(20, null, 20);
+          letter-spacing: vwPc(2.4, null, 2.4);
+          color: #3A3642;
+          width: vwPc(184, null, 184);
+          min-width: vwPc(184, null, 184);
+          margin-right: vwPc(35, null, 35);
+
+
+          @include sp {
+            width: fit-content;
+            min-width: vwSp(72, null, 72);
+            text-align: left;
+            font-size: vwSp(14, null, 14);
+            text-align:left;
+
+          }
+
+          &--multiline {
+              text-align: center;
+              line-height: 1.5;
+              @include sp {
+                min-width: vwSp(68, null, 68);
+              }
+          }
+        }
+
+        &-note{
+          flex: 1;
+          font-size: vwPc(20, null, 20);
+          line-height: 1.9;
+          color: #2E2E2E;
+          text-align: center;
+
+          @include sp {
+            font-size: vwSp(14, null, 14);
+            text-align: left;
+          }
+        }
+
+        &-textbox{
+          font-size: vwPc(20, null, 20);
+          letter-spacing: vwPc(1, null, 1);
+          line-height: 2;
+          flex: 1;
+          color: #2E2E2E;
+
+          @include sp {
+            font-size: vwSp(14, null, 14);
+            width: 100%;
+          }
+        }
+
+        &-content-title{
+          line-height: 1.9;
+        }
+
+        &-cols{
+          display: flex;
+          gap: vwPc(40, null, 40);
+
+          @include sp {
+            flex-direction: column;
+            // gap: vwSp(8, null, 8);
+            gap: 0;
+          }
+        }
+
+        &-img{
+          aspect-ratio: 386 / 250;
+          width: vwPc(386, null, 386);
+          min-width: vwPc(386, null, 386);
+          border-radius: vwPc(10, null, 10);
+          overflow: hidden;
+
+          @include sp {
+            width: 100%;
+            min-width: 0;
+            margin-top: vwSp(16, null, 16);
+          }
+          
+          img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+
+        &--break{
+          border-radius: 0 vwPc(20, null, 20) 0 vwPc(20, null, 20);
+          padding: vwPc(15, null, 15) 0;
+          gap: vwPc(35, null, 35);
+
+          @include sp {
+            border-radius: vwSp(10, null, 10);
+          }
+        }
+
+        &--columns{
+          .p-schedule_music__item-content-item-cols {
+            @include pc {
+              width: 100%;
+              gap: 0;
+            }
+          }
+
+          .p-schedule_music__item-content-item-content-text {
+            @include pc {
+              &:first-child:not(:only-child) {
+                flex: 1;
+                min-width: 0;
+              }
+
+              &:last-child:not(:only-child) {
+                width: vwPc(386, null, 386);
+                min-width: vwPc(386, null, 386);
+                flex-shrink: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

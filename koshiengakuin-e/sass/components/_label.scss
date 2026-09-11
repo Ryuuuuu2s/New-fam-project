@@ -1,0 +1,39 @@
+@use "../functions" as *;
+
+/* -----------------------
+  label
+----------------------- */
+
+.c-label {
+  --_color-label: var(--color-thema-accent);
+  --_color-label-bg: var(--color-white);
+
+  display: inline-block;
+  padding: vwPc(5, null, 5) vwPc(10, null, 10);
+  border-radius: vwPc(4, null, 4);
+  background-color: var(--_color-label-bg);
+  @include fontPc(13, 13, 13);
+  border: 1px solid var(--_color-label);
+  color: var(--_color-label);
+  border-radius: 9999px;
+  line-height: 1;
+
+  @include sp {
+    padding: vwSp(4, null, 4) vwSp(10, null, 10);
+    @include fontSp(13, null, 13);
+  }
+
+  &.is-current {
+    background-color: var(--_color-label);
+    color: var(--_color-label-bg);
+  }
+
+}
+
+a.c-label {
+  &:hover {
+    background-color: var(--_color-label);
+    color: var(--_color-label-bg);
+  }
+}
+

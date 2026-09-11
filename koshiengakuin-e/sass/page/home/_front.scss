@@ -1,0 +1,514 @@
+@use "../../functions" as *;
+
+/* -----------------------
+  front
+----------------------- */
+.p-front {
+
+  .p-front__fixed-banner {
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    z-index: 100;
+    width: vwPc(230, null, 230);
+
+    @include sp {
+      // width: vwSp(135, null, 135);
+      width: vwSp(185, null, 185);
+    }
+    
+  }
+
+
+  &-kv {
+    position: relative;
+    background: url(../img/kv_bg.jpg) 0 0 / 100% 100% no-repeat;
+    @include sp {
+      // background: initial;
+    }
+
+    .p-front-kv__catch {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      letter-spacing: 0.14em;
+      @include fontPc(24, null, 24);
+      // font-size: pmin(20, 24);
+      margin-top: vwPc(828, null, 828);
+      @include lineHeight(24, 72);
+      z-index: 2;
+
+      @include sp {
+        @include fontSp(18, null, 18);
+        // font-size: pmin(16, 20);
+        margin-top: vwSp(800, null, 800);
+        @include lineHeight(18, 49);
+      }
+    }
+
+    .p-front-kv__image {
+      text-align: center;
+
+      img {
+        margin-inline: auto;
+        max-width: 1366px;
+      }
+
+    }
+
+
+  }
+
+  /*-----------------------
+   * MARK: コンセプト
+  -----------------------*/
+  &-concept {
+    position: relative;
+
+    &__link {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      translate: -50% 0;
+      width: 100%;
+      text-align: center;
+      padding-bottom: vwPc(100, null, 100);
+      z-index: 2;
+
+      @include sp {
+        padding-bottom: vwSp(50, null, 50);
+        
+      }
+    }
+
+    .p-front-concept__bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      // background: url(../img/front_concept_bg.png) 0 0 / 100% 100% no-repeat;
+      z-index: 1;
+
+      @include sp {
+        // background: url(../img/front_concept_bg_sp.png) 0 0 / 100% 100% no-repeat;
+      }
+    }
+
+    .p-front-concept__movie {
+      video {
+        width: 100%;
+        height: auto;
+        display: block;
+        line-height: 0;
+      }
+    }
+
+  }
+
+
+  /*-----------------------
+  * MARK: NEWS
+  -----------------------*/
+  &-news {
+    background: linear-gradient(to left,#ddf5f7 0%, #e2eff8 35.47%, #ece7f7 90.64%, #f3e7f2 100%);
+    padding: vwPc(100, null, 100) vwPc(50, null, 50);
+    position: relative;
+    
+    @include sp {
+      background: linear-gradient(to bottom, #ddf5f7 0%, #e2eff8 35.47%, #ece7f7 90.64%, #f3e7f2 100%);
+      padding: vwSp(88, null, 88) 0;
+    }
+
+    &__title {
+      margin-bottom: vwPc(30, null, 30);
+
+      @include sp {
+        margin-bottom: vwSp(30, null, 30);
+        gap: vwSp(8, null, 8);
+      }
+
+      .c-title__text {
+        font-weight: 700;
+      }
+    }
+
+    &__inner {
+      margin-inline: auto;
+      max-width: 1125px;
+      position: relative;
+    }
+
+    &-list {
+      &__category {
+        width: 100%;
+        overflow-x: scroll;
+
+        @include sp {
+          padding-block-end: vwSp(10, null, 10);
+        }
+
+        &__inner {
+          display: flex;
+          gap: vwPc(5, null, 5);
+  
+          @include sp {
+            gap: vwSp(5, null, 5);
+            // width: fit-content;
+            min-width: max-content;
+            padding-inline: vwSp(20, null, 20);
+          }
+        }
+      }
+    }
+
+    &__btn {
+      text-align: center;
+
+      @include pc {
+        position: absolute;
+        top: vwPc(60, null, 60);
+        right: 0;
+      }
+    }
+
+  }
+
+
+  /*-----------------------
+  * MARK: 心がつながった児童たち
+  -----------------------*/
+  &-appeal {
+    background: linear-gradient(to left bottom, #4a89c8 0%, #00afc7 36.95%, #4a89c8 67.47%, #8a6cc8 90.64%, #c06cb4 100%);
+    padding: vwPc(160, null, 160) 0 vwPc(100, null, 100);
+    @include sp {
+      padding: vwSp(83, null, 83) 0 vwSp(120, null, 120);
+    }
+
+    &__title {
+      text-align: center;
+      color: var(--color-white);
+      letter-spacing: 0.1em;
+      font-weight: 300;
+      @include fontPc(74, null, 74);
+      
+      @include sp {
+        @include fontSp(48, null, 48);
+        @include lineHeight(48, 74);
+      }
+    
+    }
+
+    &__icon {
+      margin-inline: auto;
+      width: vwPc(340, null, 340);
+
+      @include sp {
+        width: vwSp(274, null, 274);
+      }
+    }
+
+    /* Swiper 見切れ表示のための調整 */
+    &__list,
+    &__swiper {
+      overflow: visible;
+    }
+
+    &__swiper {
+      /* パディングは swiper-wrapper に渡す（Swiper の中央計算に影響しないように） */
+      padding: 0;
+
+      .swiper-wrapper {
+        // padding: 0 12%;
+      }
+
+      .swiper-slide {
+        // max-width: 760px;
+        box-sizing: border-box;
+        // margin-right: 16px;
+      }
+
+      @include sp {
+        padding: 0 6%;
+        .swiper-wrapper { padding: 0; }
+        .swiper-slide {
+          // width: 85%;
+          // margin-right: 12px;
+        }
+      }
+    }
+
+    &__swiper {
+
+      .swiper-pagination {
+        position: initial;
+        margin-top: vwPc(28, null, 28);
+        @include sp {
+          margin-top: vwSp(14, null, 14);
+        }
+
+        .swiper-pagination-bullet {
+          background: var(--color-white);
+          opacity: .5;
+          
+          &.swiper-pagination-bullet-active {
+            opacity: 1;
+          }
+        }
+
+      }
+
+    }
+
+    &-item {
+      position: relative;
+      border-radius: vwPc(20, null, 20);
+      overflow: hidden;
+
+      &__text {
+        text-align: center;
+        color: var(--color-white);
+        letter-spacing: 0.1em;
+        @include fontPc(84, null, 84);
+        margin-bottom: vwPc(20, null, 20);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-weight: 300;
+        width: 100%;
+        @include sp {
+          @include fontSp(43, null, 43);
+          margin-bottom: vwSp(10, null, 10);
+        }
+      }
+
+      &__btn {
+        text-align: center;
+        position: absolute;
+        bottom: vwPc(60, null, 60);
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 100%;
+      }
+    }
+
+  }
+
+
+  /*-----------------------
+  * MARK: バナー
+  -----------------------*/
+  &-banners {
+    max-width: 1360px;
+    margin-inline: auto;
+    padding: vwPc(53, null, 53) vwPc(30, null, 30) vwPc(150, null, 150);
+
+    @include sp {
+      padding: vwSp(34, null, 34) vwSp(20, null, 20) vwSp(74, null, 74);
+    }
+
+    &__flex {
+      display: flex;
+      gap: vwPc(30, null, 30);
+      justify-content: center;
+      margin-block: vwPc(30, null, 30);
+
+      @include sp {
+        flex-direction: column;
+        gap: vwSp(30, null, 30);
+        margin-block: vwSp(30, null, 30);
+      }
+
+      .p-front-banner {
+        margin-top: 0!important;
+        width: 50%;
+
+        @include sp {
+          width: 100%;
+        }
+
+      }
+    }
+
+  }
+
+  &-banner {
+    display: block;
+    position: relative;
+
+    &::before {
+      background: url(../img/icon_circle_arrow.png) 0 0 / 100% 100% no-repeat;
+      content: "";
+      display: block;
+      height: vwPc(52, null, 52);
+      width: vwPc(52, null, 52);
+      position: absolute;
+      top: 2em;
+      right: 2em;
+      z-index: 2;
+
+      @include sp {
+        height: vwSp(52, null, 52);
+        width: vwSp(52, null, 52);
+        top: 1em;
+        right: 1em;
+      }
+    }
+
+    & + & {
+      margin-top: vwPc(30, null, 30);
+
+      @include sp {
+        margin-top: vwSp(30, null, 30);
+      }
+    }
+
+    &-info {
+      background-color: var(--color-white);
+      border-radius: vwPc(20, null, 20) vwPc(20, null, 20) 0 0;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+      display: inline-block;
+      padding: vwPc(20, null, 20) vwPc(30, null, 30);
+      min-width: vwPc(400, null, 400);
+      font-weight: 600;
+
+      @include sp {
+        min-width: vwSp(286, null, 286);
+        padding: vwSp(14, null, 14) vwSp(20, null, 20);
+        border-radius: vwSp(20, null, 20) vwSp(20, null, 20) 0 0;
+      }
+
+      & > span {
+        display: block;
+        text-align: center;
+        letter-spacing: 0.05em;
+        line-height: 1.2;
+        @include fontPc(16, null, 16);
+        
+        @include sp {
+          @include fontSp(12, null, 12);
+        }
+
+        &:nth-child(1) {
+          color: var(--color-thema-sub);
+        }
+        &:nth-child(2) {
+          font-size: 1.75em;
+          color: var(--color-base);
+          margin-top: vwPc(10, null, 10);
+          font-weight: 500;
+
+          @include sp {
+            @include fontSp(22, null, 22);
+          }
+        }
+      }
+
+
+    }
+
+    &-image {
+      display: block;
+      border-radius: vwPc(20, null, 20);
+      overflow: hidden;
+
+      @include sp {
+        border-radius: vwSp(20, null, 20);
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+    }
+  }
+
+
+  &-links {
+    padding: vwPc(150, null, 150) vwPc(30, null, 30);
+
+    @include sp {
+      padding: vwSp(100, null, 100) vwSp(20, null, 20) vwSp(70, null, 70);
+    }
+
+    &__item {
+      display: block;
+      margin-inline: auto;
+      max-width: 936px;
+
+      & + & {
+        margin-top: vwPc(20, null, 20);
+        @include sp {
+          margin-top: vwSp(20, null, 20);
+        }
+
+      }
+    }
+
+  }
+
+}
+
+@keyframes p-endress-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* CSS marquee for endress (duplicate items required in markup) */
+.p-endress-auto-slide {
+  overflow: hidden;
+
+  &+.p-endress-auto-slide {
+    margin-top: vwPc(30, null, 30);
+    @include sp {
+      margin-top: vwSp(14, null, 14);
+    }
+  }
+
+  &__track {
+    display: flex;
+    gap: vwPc(30, null, 30);
+    align-items: center;
+    animation: p-endress-marquee var(--p-endress-duration, 20s) linear infinite;
+    will-change: transform;
+    transform: translate3d(0,0,0);
+
+    @include sp {
+      gap: vwSp(14, null, 14);
+    }
+  }
+
+  &:hover {
+    &__track { animation-play-state: paused; }
+  }
+
+  &--reverse {
+    .p-endress-auto-slide__track {
+      animation-direction: reverse;
+    }
+  }
+
+  &__item {
+    width: vwPc(570, null, 570);
+    flex: none;
+
+    @include sp {
+      width: vwSp(264, null, 264);
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+}
+

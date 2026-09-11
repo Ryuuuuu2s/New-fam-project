@@ -1,0 +1,91 @@
+{
+    "key": "group_6a829ec48a02a",
+    "title": "入学試験・募集要項：出願について",
+    "fields": [
+        {
+            "key": "field_6a829ec48715b",
+            "label": "募集人員",
+            "name": "募集人員",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "約60名（男・女）",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6a829ee08715c",
+            "label": "出願資格",
+            "name": "出願資格",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "令和2年4月2日～\r\n令和3年4月1日に生まれた者",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": "",
+            "placeholder": "",
+            "new_lines": "br"
+        },
+        {
+            "key": "field_6a829eff1a01b",
+            "label": "出願手続",
+            "name": "出願手続",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "(1)入学願書（写真アップロード・現住所は住民票記載の住所）\r\n(2)検定料 20,000円〈銀行振込〉\r\n※選考結果通知用封筒は、面接日にお渡しいたします。\r\n本校所定の封筒に宛先を記入し、920円分の切手を貼って選考日に提出してください\r\n☆出願の仕方は本校ホームページでご案内いたします",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": "",
+            "placeholder": "",
+            "new_lines": "br"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_template",
+                "operator": "==",
+                "value": "pages\/page-admission-guide.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1787101457
+}

@@ -1,0 +1,130 @@
+@use "../functions" as *;
+
+.p-after-school {
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: vwPc(30, null, 30);
+
+    @include sp {
+      grid-template-columns: 1fr;
+      gap: vwSp(30, null, 30);
+    }
+  }
+
+  &__item {
+    background: linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
+    border-radius: vwPc(16, null, 16);
+    overflow: hidden;
+
+    @include sp {
+      border-radius: vwSp(20, null, 20);
+    }
+
+    .p-after-school__visual img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .p-after-school__body {
+      background: url(../img/after-school_bg.jpg) 0 0 / 100% 100% no-repeat;
+      height: 100%;
+      padding: vwPc(55, null, 55) vwPc(44, null, 44);
+
+      @include sp {
+        height: initial;
+        padding: vwSp(37, null, 37) vwSp(15, null, 15) vwSp(40, null, 40);
+      }
+    }
+
+    .p-after-school__title {
+      width: vwPc(230, null, 230);
+
+      @include sp {
+        width: vwSp(135, null, 135);
+      }
+      
+      &.m-type-2 {
+        width: vwPc(280, null, 280);
+  
+        @include sp {
+          width: vwSp(200, null, 200);
+        }
+      }
+    }
+
+    .p-after-school__text {
+      line-height: 2;
+      @include fontPc(18, null, 18);
+
+      @include sp {
+        @include fontSp(15, null, 15);
+      }
+    }
+    
+
+    .p-after-school__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: vwPc(10, null, 10);
+
+      @include sp {
+        // grid-template-columns: 1fr;
+        gap: vwSp(36, null, 36);
+      }
+
+      .p-after-school__name {
+        display: block;
+        margin-bottom: vwPc(8, null, 8);
+        border-bottom: 1px solid #C6C6C6;
+        @include fontPc(18, null, 18);
+
+        @include sp {
+          margin-bottom: vwSp(12, null, 12);
+          padding-bottom: vwSp(8, null, 8);
+          @include fontSp(15, null, 15);
+        }
+      }
+
+      ul {
+        @include fontPc(15, null, 15);
+
+        @include sp {
+          @include fontSp(14, null, 14);
+        }
+
+        & > li {
+          display: flex;
+          @include sp {
+            flex-direction: column;
+          }
+
+          &+li {
+            margin-top: vwPc(30, null, 30);
+
+            @include sp {
+              margin-top: vwSp(20, null, 20);
+            }
+          }
+
+          & > span {
+            &:nth-child(1) {
+              white-space: nowrap;
+              width: vwPc(55, null, 55);
+              flex-shrink: 0;
+            }
+
+            &:nth-child(2) {
+              flex: 1;
+            }
+          }
+        }
+
+      }
+
+    }
+  }
+}
